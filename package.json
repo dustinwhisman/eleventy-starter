@@ -4,6 +4,8 @@
   "author": "Dustin Whisman",
   "license": "ISC",
   "scripts": {
+    "start": "NODE_ENV=development eleventy --serve",
+    "build": "NODE_ENV=production eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
