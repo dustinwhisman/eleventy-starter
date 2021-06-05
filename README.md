@@ -5,8 +5,8 @@ repo.](https://github.com/dustinwhisman/eleventy-starter/generate) This will
 open a form for you to create a new repo with all the files from this one.
 
 - Out of the box, you should have:
-  - [ ] Eleventy configured to build your templates into pages, including a
-    catchall 404 page
+  - [x] Eleventy configured to build your templates into pages, including a
+    catch-all 404 page
   - [ ] Sass support with minimal/brutalist styles ready to go, including dark
     mode
   - [ ] JS bundling with modern/legacy builds
