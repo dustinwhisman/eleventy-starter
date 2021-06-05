@@ -1,0 +1,35 @@
+---
+title: Eleventy Starter
+description: A starter template for getting eleventy projects running quickly.
+---
+
+<!doctype html>
+
+<!-- TODO: allow for localization/rtl using data -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- TODO: allow for title and description to be overwritten by pages -->
+    <title>{{ renderData.title or title }} | Eleventy Starter</title>
+    <meta name="description" content="{{ description }}">
+
+    <!-- TODO: add manifest and default icons -->
+    <!-- <link rel="apple-touch-icon" href="/icons/icon_192.png"> -->
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <!-- TODO: add support for dark mode favicons -->
+    <!-- <link rel="shortcut icon" href="/favicon.png"> -->
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <meta name="theme-color" content="#202020">
+  </head>
+  <body>
+    {{ content | safe }}
+
+    <!-- TODO: add a script for toggling dark mode favicons -->
+    <!-- TODO: add a block for scripts at end of body tag -->
+    <!-- TODO: add service worker script that's not added in development -->
+  </body>
+</html>
