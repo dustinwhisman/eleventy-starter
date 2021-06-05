@@ -6,13 +6,16 @@
   "scripts": {
     "prestart": "run-p clean node-version",
     "prebuild": "run-p clean node-version",
-    "start": "run-p eleventy:dev sass:dev",
-    "build": "run-p eleventy:build sass:build",
+    "start": "run-p eleventy:dev sass:dev postcss:watch",
+    "build": "run-s eleventy:build sass:build postcss:build",
     "clean": "rimraf dist",
     "eleventy:dev": "NODE_ENV=development eleventy --serve",
     "eleventy:build": "NODE_ENV=production eleventy",
-    "sass:dev": "sass --watch src/scss:dist/css",
-    "sass:build": "sass --no-source-map src/scss:dist/css",
+    "sass:dev": "sass --watch --embed-source-map src/scss:dist/css/tmp",
+    "sass:build": "sass --no-source-map src/scss:dist/css/tmp",
+    "postcss:dev": "postcss dist/css/tmp/*.css -d dist/css",
+    "postcss:build": "postcss --no-map dist/css/tmp/*.css -d dist/css",
+    "postcss:watch": "chokidar \"**/tmp/*.css\" -c \"npm run postcss:dev\"",
     "node-version": "check-node-version --package",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,7 +26,11 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "check-node-version": "^4.1.0",
+    "chokidar-cli": "^2.1.0",
+    "cssnano": "^5.0.5",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
     "rimraf": "^3.0.2",
     "sass": "^1.34.1"
   }
