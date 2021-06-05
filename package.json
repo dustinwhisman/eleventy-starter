@@ -4,6 +4,8 @@
   "author": "Dustin Whisman",
   "license": "ISC",
   "scripts": {
+    "prestart": "run-p clean node-version",
+    "prebuild": "run-p clean node-version",
     "start": "run-p eleventy:dev sass:dev",
     "build": "run-p eleventy:build sass:build",
     "clean": "rimraf dist",
@@ -11,6 +13,7 @@
     "eleventy:build": "NODE_ENV=production eleventy",
     "sass:dev": "sass --watch src/scss:dist/css",
     "sass:build": "sass --no-source-map src/scss:dist/css",
+    "node-version": "check-node-version --package",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -19,6 +22,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "check-node-version": "^4.1.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^2.7.1",
     "sass": "^1.34.1"
