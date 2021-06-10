@@ -46,6 +46,22 @@ This project uses [Sass](https://sass-lang.com/) to compile into CSS.
 Boilerplate styles are in the `src/scss` folder and are output to the `dist/css`
 folder.
 
+Sass is organized into folders following an ITCSS convention. The folders are as
+follows:
+- `settings`: global variables, colors, and fonts should go here
+- `tools`: mixins, functions, keyframes, etc. should go here
+- `generic`: normalize/reset-type styles, or anything not specific to this site
+  should go here
+- `elements`: styling for base elements (such as `h1` or `a`) should go here
+- `objects`: broad, undecorated design patterns should go here – this is the
+  first layer that uses class selectors
+- `components`: specific UI components should go here – this is the bread and
+  butter
+- `vendors`: third party styles should go here so they live side-by-side with
+  your own styles, but can still be overridden by utilities
+- `utilities`: utilities and helper classes should go here – this is where you
+  might use `!important` extensively
+
 ## JavaScript
 
 JavaScript files are bundled by Rollup from `src/js` into modern or legacy
