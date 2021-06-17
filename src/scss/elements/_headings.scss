@@ -1,0 +1,35 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --heading-font-weight: #{$heading-font-weight};
+
+  font-weight: var(--heading-font-weight);
+  max-width: var(--default-max-width);
+}
+
+h1 {
+  font-size: calc(var(--h1));
+}
+
+h2 {
+  font-size: calc(var(--h2));
+}
+
+h3 {
+  font-size: calc(var(--h3));
+}
+
+h4 {
+  font-size: calc(var(--h4));
+}
+
+h5 {
+  font-size: calc(var(--h5));
+}
+
+h6 {
+  font-size: calc(var(--h6));
+}
