@@ -1,0 +1,6 @@
+li {
+  --max-width: var(--default-max-width);
+
+  max-width: var(--max-width);
+  margin-block: calc(var(--default-font-size) / 4);
+}
