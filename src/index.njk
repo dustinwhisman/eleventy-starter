@@ -4,15 +4,16 @@ description: This is your basic hello world page that doesn't do anything.
 layout: layouts/default.njk
 ---
 
-<article>
+<article class="cmp--container">
   <div class="cmp--stack">
     <h1>
       This is an h1.
     </h1>
 
     <p>
-      This whole page is wrapped in a stack component, which establishes a
-      vertical rhythm for its child elements.
+      This page is wrapped in an article element, which is using the container
+      component to center everything. It sets a max width and uses auto margins
+      to keep everything in the middle.
     </p>
 
     <h2>
@@ -20,13 +21,18 @@ layout: layouts/default.njk
     </h2>
 
     <p>
-      There is extra space added above heading elements in order to make it
-      clear that a new section has started.
+      This whole page is wrapped in a stack component, which establishes a
+      vertical rhythm for its child elements.
     </p>
 
     <h3>
       This is an h3.
     </h3>
+
+    <p>
+      There is extra space added above heading elements in order to make it
+      clear that a new section has started.
+    </p>
 
     <h4>
       This is an h4.
