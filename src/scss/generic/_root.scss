@@ -1,6 +1,8 @@
 :root {
   --background-color: #{$background-color};
   --text-color: #{$text-color};
+  --link-color: #{$link-color};
+  --link-hover-color: #{$link-hover-color};
 
   --font-scale-ratio: #{$font-scale-ratio};
   --default-font-size: #{$default-font-size};

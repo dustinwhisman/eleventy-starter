@@ -1,16 +1,22 @@
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #{$text-color};
-    --text-color: #{$background-color};
+    --background-color: #{$dark-mode-background-color};
+    --text-color: #{$dark-mode-text-color};
+    --link-color: #{$dark-mode-link-color};
+    --link-hover-color: #{$dark-mode-link-hover-color};
   }
 }
 
 .theme--dark-mode {
-  --background-color: #{$text-color};
-  --text-color: #{$background-color};
+  --background-color: #{$dark-mode-background-color};
+  --text-color: #{$dark-mode-text-color};
+  --link-color: #{$dark-mode-link-color};
+  --link-hover-color: #{$dark-mode-link-hover-color};
 }
 
 .theme--light-mode {
   --background-color: #{$background-color};
   --text-color: #{$text-color};
+  --link-color: #{$link-color};
+  --link-hover-color: #{$link-hover-color};
 }
