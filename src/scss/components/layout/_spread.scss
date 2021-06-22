@@ -1,0 +1,17 @@
+.cmp-spread {
+  --spread-padding: 1rem;
+  --spread-gap: 1.5rem;
+
+  display: grid;
+  gap: var(--spread-gap);
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.cmp-spread header {
+  padding-block-start: var(--spread-padding);
+}
+
+.cmp-spread footer {
+  padding-block-end: var(--spread-padding);
+}
