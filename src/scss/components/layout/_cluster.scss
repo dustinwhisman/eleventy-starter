@@ -1,0 +1,15 @@
+.cmp-cluster {
+  --cluster-space: 1rem;
+}
+
+.cmp-cluster > * {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin: calc(var(--cluster-space) / 2 * -1);
+}
+
+.cmp-cluster > * > * {
+  margin: calc(var(--cluster-space) / 2);
+}
