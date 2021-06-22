@@ -1,8 +1,8 @@
 .cmp-container {
-  --gutter: 1rem;
-  --max-width: var(--default-max-width);
+  --container-gutter: 1rem;
+  --container-max-width: var(--default-max-width);
 
-  width: calc(100% - (var(--gutter) * 2));
-  max-width: var(--max-width);
+  width: calc(100% - (var(--container-gutter) * 2));
+  max-width: var(--container-max-width);
   margin-inline: auto;
 }

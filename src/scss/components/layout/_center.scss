@@ -1,0 +1,6 @@
+.cmp-center {
+  --center-max-width: var(--default-max-width);
+
+  max-width: var(--center-max-width);
+  margin-inline: auto;
+}
