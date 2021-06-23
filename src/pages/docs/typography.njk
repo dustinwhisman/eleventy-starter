@@ -1,0 +1,97 @@
+---
+title: Typography
+description: This lays out the basic typographical elements of the design system.
+layout: layouts/docs.njk
+---
+
+<article class="cmp-container cmp-stack">
+  <h1>
+    Typography
+  </h1>
+
+  <p>
+    This is a paragraph, and that thing up there is an h1. By default, we use a
+    nice system font stack that should look decent on all browsers and operating
+    systems without needing to load any custom fonts.
+  </p>
+
+  <p>
+    If you want to host your own custom fonts, we recommend defining the
+    font-faces in <code>scss/settings/_fonts.scss</code> and putting the font
+    files in the <code>fonts</code> folder.
+  </p>
+
+  <p>
+    This is another paragraph, and since this page is wrapped in a stack
+    component, there will be a nice vertical rhythm throughout the whole page.
+  </p>
+
+  <h2>
+    This is an h2.
+  </h2>
+
+  <p>
+    There is extra space added above heading elements in order to make it clear
+    that a new section has started.
+  </p>
+
+  <h3>
+    This is an h3.
+  </h3>
+
+  <h4>
+    This is an h4.
+  </h4>
+
+  <h5>
+    This is an h5.
+  </h5>
+
+  <h6>
+    This is an h6.
+  </h6>
+
+  <p>
+    This is a paragraph. It is capped at a max width defined in the theme of
+    your site. Most things will adhere to the same max width, but paragraphs are
+    one of the more likely tags to surpass that limit.
+  </p>
+
+  <p>
+    Since this is a new paragraph and it's still in the stack component, there
+    will be a separation between the two paragraphs. A margin is added to to the
+    top of all but the first child elements of the stack.
+  </p>
+
+  <p>
+    This is an unordered list.
+  </p>
+  <ul>
+    <li>
+      Here's an item.
+    </li>
+    <li>
+      Here's another item.
+    </li>
+    <li>
+      Here's a third item that has loads of extra text that will make it wrap
+      once it passes its max width.
+    </li>
+  </ul>
+
+  <p>
+    This is an ordered list.
+  </p>
+  <ol>
+    <li>
+      Here's item #1.
+    </li>
+    <li>
+      Here's item #2.
+    </li>
+    <li>
+      Here's item #3, which has a bunch of text that will make it wrap once it
+      passes its max width.
+    </li>
+  </ol>
+</article>
