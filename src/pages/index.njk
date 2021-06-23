@@ -6,107 +6,115 @@ layout: layouts/default.njk
 
 <article class="cmp-container cmp-stack">
   <h1>
-    This is an h1.
+    Eleventy Starter
   </h1>
 
   <p>
-    This page is wrapped in an article element, which is using the container
-    component to center everything. It sets a max width and uses auto margins to
-    keep everything in the middle.
+    This starter template should give you the ability to start a brand new
+    eleventy project with one click without dealing with loads of boilerplate
+    and tooling setup.
+  </p>
+
+  <p>
+    It has opinionated defaults, but it follows conventions that should allow
+    for easy customization. Feel free to fork it, make any changes you like, and
+    turn it into your own starter template.
   </p>
 
   <h2>
-    This is an h2.
+    Getting Started
   </h2>
 
   <p>
-    This whole page is wrapped in a stack component, which establishes a
-    vertical rhythm for its child elements.
-  </p>
-
-  <h3>
-    This is an h3.
-  </h3>
-
-  <p>
-    There is extra space added above heading elements in order to make it clear
-    that a new section has started.
-  </p>
-
-  <h4>
-    This is an h4.
-  </h4>
-
-  <h5>
-    This is an h5.
-  </h5>
-
-  <h6>
-    This is an h6.
-  </h6>
-
-  <p>
-    This is a paragraph. It is capped at a max width defined in the theme of
-    your site. Most things will adhere to the same max width, but paragraphs are
-    one of the more likely tags to surpass that limit.
+    Use GitHub's repo generation feature to
+    <a href="https://github.com/dustinwhisman/eleventy-starter/generate">create a new repo</a>
+    that has everything ready to go.
   </p>
 
   <p>
-    Since this is a new paragraph and it's still in the stack component, there
-    will be a separation between the two paragraphs. A margin is added to to the
-    top of all but the first child elements of the stack.
-  </p>
-
-  <p>
-    This is an unordered list.
+    Out of the box, you should have:
   </p>
   <ul>
     <li>
-      Here's an item.
+      Eleventy configured to build your templates into pages, including a
+      catch-all 404 page
     </li>
     <li>
-      Here's another item.
+      Sass support with minimal/brutalist styles ready to go, including dark
+      mode
     </li>
     <li>
-      Here's a third item that has loads of extra text that will make it wrap
-      once it passes its max width.
+      JS bundling with modern/legacy builds
+    </li>
+    <li>
+      Most PWA requirements already met
+    </li>
+    <li>
+      A service worker with reasonable defaults for different types of requests
     </li>
   </ul>
 
-  <p>
-    This is an ordered list.
-  </p>
+  <h3>
+    Installation
+  </h3>
+
   <ol>
     <li>
-      Here's item #1.
+      After cloning your new repo, make sure you have node/npm versions that
+      match the ones in <code>package.json</code>.
     </li>
     <li>
-      Here's item #2.
+      Run <code>npm install</code>.
     </li>
     <li>
-      Here's item #3, which has a bunch of text that will make it wrap once it
-      passes its max width.
+      Run <code>npm start</code>, which will build the site and start a
+      development server on <a href="http://localhost:8080">localhost:8080</a>.
     </li>
   </ol>
 
+  <h3>
+    Customization
+  </h3>
   <p>
-    This is a cluster. It groups items together and wraps automatically when
-    there isn't enough space on one row.
+    Once you're up and running, it's time to start changing stuff! You can start
+    with the theme of the site by changing the main set of variables that define
+    global styles in <code>src/scss/settings/_theme.scss</code>.
   </p>
-  <div class="cmp-cluster">
-    <div>
-      <a href="/">
-        This is a link
-      </a>
-      <a href="/">
-        This is another link
-      </a>
-      <a href="/">
-        This is a third link
-      </a>
-      <a href="/">
-        This is the final link
-      </a>
-    </div>
-  </div>
+  <p>
+    The styles for this are organized following ITCSS conventions. The structure
+    is as follows:
+  </p>
+  <ul>
+    <li>
+      <code>settings</code>: global variables, colors, and fonts should go here
+    </li>
+    <li>
+      <code>tools</code>: mixins, functions, keyframes, etc. should go here
+    </li>
+    <li>
+      <code>generic</code>: normalize/reset-type styles, or anything not
+      specific to this site should go here
+    </li>
+    <li>
+      <code>elements</code>: styling for base elements (such as <code>h1</code>
+      or <code>a</code>) should go here
+    </li>
+    <li>
+      <code>objects</code>: broad, undecorated design patterns should go here –
+      this is the first layer that uses class selectors
+    </li>
+    <li>
+      <code>components</code>: specific UI components should go here – this is
+      the bread and butter
+    </li>
+    <li>
+      <code>vendors</code>: third party styles should go here so they live
+      side-by-side with your own styles, but can still be overridden by
+      utilities
+    </li>
+    <li>
+      <code>utilities</code>: utilities and helper classes should go here – this
+      is where you might use <code>!important</code> extensively
+    </li>
+  </ul>
 </article>

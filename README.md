@@ -13,7 +13,6 @@ open a form for you to create a new repo with all the files from this one.
   - [ ] Most PWA requirements already met
   - [ ] A service worker with reasonable defaults for different types of
     requests
-  - [ ] Support for localization/internationalization
 
 - Update your details throughout the repo:
   - `package.json`
