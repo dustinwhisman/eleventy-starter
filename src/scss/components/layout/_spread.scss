@@ -3,15 +3,15 @@
   --spread-gap: 1.5rem;
 
   display: grid;
-  gap: var(--spread-gap);
+  gap: var(--spread-gap, 1.5rem);
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
 
 .cmp-spread header {
-  padding-block-start: var(--spread-padding);
+  padding-block-start: var(--spread-padding, 1rem);
 }
 
 .cmp-spread footer {
-  padding-block-end: var(--spread-padding);
+  padding-block-end: var(--spread-padding, 1rem);
 }
