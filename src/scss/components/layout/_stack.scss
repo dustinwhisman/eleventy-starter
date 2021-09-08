@@ -1,5 +1,6 @@
 .cmp-stack {
   --stack-space: 1.5rem;
+  --stack-heading-multiplier: 1.5;
 
   display: flex;
   flex-direction: column;
@@ -14,6 +15,6 @@
   margin-block-start: var(--stack-space, 1.5rem);
 
   &:is(h1, h2, h3, h4, h5, h6) {
-    margin-block-start: calc(var(--stack-space, 1.5rem) * 2);
+    margin-block-start: calc(var(--stack-space, 1.5rem) * var(--stack-heading-multiplier, 1.5));
   }
 }

@@ -7,12 +7,14 @@ open a form for you to create a new repo with all the files from this one.
 - Out of the box, you should have:
   - [x] Eleventy configured to build your templates into pages, including a
     catch-all 404 page
-  - [ ] Sass support with minimal/brutalist styles ready to go, including dark
+  - [x] Sass support with minimal/brutalist styles ready to go, including dark
     mode
   - [ ] JS bundling with modern/legacy builds
   - [ ] Most PWA requirements already met
   - [ ] A service worker with reasonable defaults for different types of
     requests
+  - [ ] Documentation explaining what to change, what to delete, and how things
+    work
 
 - Update your details throughout the repo:
   - `package.json`

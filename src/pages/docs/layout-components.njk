@@ -1,0 +1,186 @@
+---
+title: Layout Components
+description: This describes the different layout components that can be used out of the box.
+tags: docs
+layout: layouts/docs.njk
+---
+
+<article class="cmp-container cmp-stack">
+  <h1>
+    Layout Components
+  </h1>
+  <p>
+    There are a variety of layout components you can use out of the box, either
+    separately or in combination with each other. Here are the most commonly
+    used ones, but you can add new ones to
+    <code>src/scss/components/layout</code>.
+  </p>
+  <p>
+    Check out <a href="https://every-layout.dev/">Every Layout</a> for other
+    components or to understand more about how these work.
+  </p>
+
+  <h2>
+    Center & Container
+  </h2>
+  <p>
+    This sets a maximum width on the content inside and centers it relative to
+    its parent container. Use <code>--center-max-width</code> to override the
+    default max-width.
+  </p>
+  <p>
+    The Container is similar, but it is intended to wrap most content on the
+    page. It includes a gutter that prevents it from touching the edge of the
+    screen.
+  </p>
+
+  <h3>
+    Example
+  </h3>
+  <div class="cmp-center" style="--center-max-width: 30ch">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ut quae
+      repellendus.
+    </p>
+  </div>
+
+  <h3>
+    Usage
+  </h3>
+<pre>
+&lt;div class="cmp-center" style="--center-max-width: 30ch"&gt;
+  &lt;p&gt;
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Veritatis ut quae repellendus.
+  &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+  <h2>
+    Cluster
+  </h2>
+  <p>
+    This is used to group elements horizontally with a given amount of space
+    between each of them. It is designed to wrap gracefully, maintaining the
+    same level of space between each item. Use <code>--cluster-space</code> to
+    change the space between elements.
+  </p>
+  <p>
+    Clusters can be nested and justified to create common layouts, such as in a
+    header, where the home page link is at one end, and a cluster of other menu
+    links is on the other. Use the variation <code>cmp-cluster--between</code>
+    to achieve this.
+  </p>
+
+  <h3>
+    Example
+  </h3>
+  <div class="cmp-cluster" style="--cluster-space: 2rem">
+    <a href="#0">Thing One</a>
+    <a href="#0">Thing Two</a>
+    <a href="#0">Thing Three</a>
+  </div>
+  <div class="cmp-cluster cmp-cluster--between">
+    <a href="#0">My Very Important Link</a>
+    <div class="cmp-cluster">
+      <a href="#0">Thing One</a>
+      <a href="#0">Thing Two</a>
+      <a href="#0">Thing Three</a>
+    </div>
+  </div>
+
+  <h3>
+    Usage
+  </h3>
+<pre>
+&lt;div class="cmp-cluster" style="--cluster-space: 2rem"&gt;
+  &lt;a href="#0">Thing One&lt;/a&gt;
+  &lt;a href="#0">Thing Two&lt;/a&gt;
+  &lt;a href="#0">Thing Three&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="cmp-cluster cmp-cluster--between"&gt;
+  &lt;a href="#0">My Very Important Link&lt;/a&gt;
+  &lt;div class="cmp-cluster"&gt;
+    &lt;a href="#0">Thing One&lt;/a&gt;
+    &lt;a href="#0">Thing Two&lt;/a&gt;
+    &lt;a href="#0">Thing Three&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+  <h2>
+    Spread
+  </h2>
+  <p>
+    This is intended to separate the header and footer from the main content of
+    the page, while pushing the footer to the bottom if there is not much
+    content.
+  </p>
+  <p>
+    Use <code>--spread-padding</code> to set the padding above and below the
+    header and footer, respectively. Use <code>--spread-gap</code> to change the
+    gap between the main content and the header and footer.
+  </p>
+
+  <h3>
+    Example
+  </h3>
+  <p>
+    This page is the example. Look at the gaps between the header, body, and
+    footer of the page, as well as the space above the header and below the
+    footer.
+  </p>
+
+  <h3>
+    Usage
+  </h3>
+<pre>
+&lt;div class="cmp-spread" style="--spread-padding: 1rem; --spread-gap: 1.5rem"&gt;
+  &lt;header&gt;&lt;!-- header stuff --&gt;&lt;/header&gt;
+  &lt;main&gt;&lt;!-- main stuff --&gt;&lt;/main&gt;
+  &lt;footer&gt;&lt;!-- footer stuff --&gt;&lt;/footer&gt;
+&lt;/div&gt;
+</pre>
+
+  <h2>
+    Stack
+  </h2>
+  <p>
+    This creates a vertical rhythm between elements, removing the need to set
+    margin or padding on individual elements or change them for the first or
+    last child. Use <code>--stack-space</code> to change the gap between
+    elements.
+  </p>
+  <p>
+    To clarify heading levels, the stack space is increased for <code>h1</code>,
+    <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, and
+    <code>h6</code> elements. To change the multiplier, use
+    <code>--stack-heading-multiplier</code>.
+  </p>
+
+  <h3>
+    Example
+  </h3>
+  <p>
+    This page is the example (as is most of the site). This component is used
+    super frequently, as it's very handy to set at a high level and not think
+    about.
+  </p>
+
+  <h3>
+    Usage
+  </h3>
+<pre>
+&lt;div class="cmp-stack" style="--stack-space: 1rem; --stack-heading-multiplier: 1.2"&gt;
+  &lt;p&gt;
+    Lorem ipsum dolor sit amet.
+  &lt;/p&gt;
+  &lt;p&gt;
+    Lorem ipsum dolor sit amet consectetur adipisicing.
+  &lt;/p&gt;
+  &lt;p&gt;
+    Lorem, ipsum dolor.
+  &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+</article>
