@@ -44,8 +44,8 @@ many different kinds of templating languages, so check out the
 ## Sass
 
 This project uses [Sass](https://sass-lang.com/) to compile into CSS.
-Boilerplate styles are in the `src/scss` folder and are output to the `dist/css`
-folder.
+Boilerplate styles are in the `src/assets/scss` folder and are output to the
+`dist/css` folder.
 
 Sass is organized into folders following an ITCSS convention. The folders are as
 follows:
@@ -65,9 +65,9 @@ follows:
 
 ## JavaScript
 
-JavaScript files are bundled by Rollup from `src/js` into modern or legacy
-bundles in `dist/js`. Legacy bundles use Babel to transpile JS into syntax
-understood by older browsers. To deliver the right scripts to the right
+JavaScript files are bundled by Rollup from `src/assets/js` into modern or
+legacy bundles in `dist/js`. Legacy bundles use Babel to transpile JS into
+syntax understood by older browsers. To deliver the right scripts to the right
 browsers, follow the module/nomodule pattern:
 
 ```html
