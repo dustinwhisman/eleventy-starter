@@ -6,3 +6,35 @@
   list-style: none;
   padding-inline-start: 0;
 }
+
+.util-font-italic {
+  font-style: italic;
+}
+
+.util-size-xs {
+  font-size: var(--font-size-xs);
+}
+
+.util-size-sm {
+  font-size: var(--font-size-sm);
+}
+
+.util-size-md {
+  font-size: var(--font-size-md);
+}
+
+.util-size-lg {
+  font-size: var(--font-size-lg);
+}
+
+.util-size-xl {
+  font-size: var(--font-size-xl);
+}
+
+.util-size-xxl {
+  font-size: var(--font-size-xxl);
+}
+
+.util-size-xxxl {
+  font-size: var(--font-size-xxxl);
+}

@@ -1,0 +1,69 @@
+---
+title: Blog
+description: Navigate to all blog posts for this site from here.
+layout: layouts/default.njk
+pagination:
+  data: collections.posts
+  size: 10
+  reverse: true
+  alias: posts
+---
+
+<article class="cmp-container cmp-stack">
+  <h1>
+    Blog
+  </h1>
+
+  <ul class="util-no-list-style cmp-stack">
+    {% for post in posts %}
+      <li>
+        <a href="{{ post.url }}">
+          {{ post.data.title }}
+        </a>
+        <p class="util-size-xs util-font-italic">
+          {{ post.date.toLocaleDateString() }} – {{ post.data.author }}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if pagination.href.previous or pagination.href.next %}
+    <ol class="util-no-list-style cmp-cluster">
+      {% if page.url != pagination.href.first %}
+        <li>
+          <a href="{{ pagination.href.first }}">
+            First
+          </a>
+        </li>
+      {% endif %}
+      {% if pagination.href.previous %}
+        <li>
+          <a href="{{ pagination.href.previous }}">
+            Previous
+          </a>
+        </li>
+      {% endif %}
+      {%- for pageEntry in pagination.pages %}
+        {% if page.url == pagination.hrefs[ loop.index0 ] %}
+        <li>
+          Page {{ loop.index }} of {{ loop.length }}
+        </li>
+        {% endif %}
+      {%- endfor %}
+      {% if pagination.href.next %}
+        <li>
+          <a href="{{ pagination.href.next }}">
+            Next
+          </a>
+        </li>
+      {% endif %}
+      {% if page.url != pagination.href.last %}
+        <li>
+          <a href="{{ pagination.href.last }}">
+            Last
+          </a>
+        </li>
+      {% endif %}
+    </ol>
+  {% endif %}
+</article>

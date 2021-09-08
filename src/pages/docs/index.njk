@@ -10,10 +10,12 @@ layout: layouts/docs.njk
   </h1>
 
   <ul class="util-no-list-style">
-    <li>
-      <a href="/docs/typography">
-        Typography
-      </a>
-    </li>
+    {%- for doc in collections.docs -%}
+      <li>
+        <a href="{{ doc.url }}">
+          {{ doc.data.title }}
+        </a>
+      </li>
+    {%- endfor -%}
   </ul>
 </article>

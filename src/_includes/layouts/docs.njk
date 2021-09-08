@@ -27,24 +27,9 @@ description: A starter template for getting eleventy projects running quickly.
   </head>
   <body>
     <div class="cmp-spread">
-      <header class="cmp-container">
-        <nav class="cmp-cluster cmp-cluster--between">
-          <a href="/">
-            Eleventy Starter
-          </a>
-          <div class="cmp-cluster">
-            <a href="/docs">
-              Docs
-            </a>
-            <a href="/">
-              Contact
-            </a>
-            <a href="/">
-              Blog
-            </a>
-          </div>
-        </nav>
-      </header>
+      {% block header %}
+        {% include "components/header.njk" %}
+      {% endblock %}
       <main>
         {{ content | safe }}
       </main>

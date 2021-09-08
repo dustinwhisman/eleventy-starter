@@ -31,7 +31,15 @@ description: A starter template for getting eleventy projects running quickly.
         {% include "components/header.njk" %}
       {% endblock %}
       <main>
-        {{ content | safe }}
+        <article class="cmp-container cmp-stack">
+          <h1>
+            {{ title }}
+          </h1>
+          <p class="util-size-sm util-font-italic">
+            {{ page.date.toLocaleDateString() }}: Written by {{ author }}
+          </p>
+          {{ content | safe }}
+        </article>
       </main>
       <footer class="cmp-container">
         <p>
