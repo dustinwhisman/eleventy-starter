@@ -1,25 +1,19 @@
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #{$dark-mode-background-color};
-    --text-color: #{$dark-mode-text-color};
-    --link-color: #{$dark-mode-link-color};
-    --link-hover-color: #{$dark-mode-link-hover-color};
-    --code-color: #{$dark-mode-code-color};
+    --theme-background-brightness: 10%;
+    --theme-foreground-brightness: 96%;
+    --theme-hover-brightness: 86%;
   }
 }
 
 .theme--dark-mode {
-  --background-color: #{$dark-mode-background-color};
-  --text-color: #{$dark-mode-text-color};
-  --link-color: #{$dark-mode-link-color};
-  --link-hover-color: #{$dark-mode-link-hover-color};
-  --code-color: #{$dark-mode-code-color};
+  --theme-background-brightness: 10%;
+  --theme-foreground-brightness: 96%;
+  --theme-hover-brightness: 86%;
 }
 
 .theme--light-mode {
-  --background-color: #{$background-color};
-  --text-color: #{$text-color};
-  --link-color: #{$link-color};
-  --link-hover-color: #{$link-hover-color};
-  --code-color: #{$code-color};
+  --theme-background-brightness: 96%;
+  --theme-foreground-brightness: 10%;
+  --theme-hover-brightness: 35%;
 }

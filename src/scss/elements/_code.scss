@@ -1,5 +1,6 @@
 code {
+  word-wrap: break-word;
   font-family: var(--monospace-font-family);
-  font-size: 80%;
-  color: var(--code-color);
+  font-size: var(--font-size-sm);
+  color: var(--foreground-color);
 }

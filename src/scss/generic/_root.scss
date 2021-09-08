@@ -1,34 +1,7 @@
 :root {
-  --background-color: #{$background-color};
-  --text-color: #{$text-color};
-  --link-color: #{$link-color};
-  --link-hover-color: #{$link-hover-color};
-  --code-color: #{$code-color};
-
-  --font-scale-ratio: #{$font-scale-ratio};
-  --default-font-size: #{$default-font-size};
-  --h6: var(--default-font-size) / var(--font-scale-ratio);
-  --h5: var(--default-font-size);
-  --h4: var(--default-font-size) * var(--font-scale-ratio);
-  --h3: var(--h4) * var(--font-scale-ratio);
-  --h2: var(--h3) * var(--font-scale-ratio);
-  --h1: var(--h2) * var(--font-scale-ratio);
-
-  --default-font-family: #{$default-font-family};
-  --default-font-variant-numeric: #{$default-font-variant-numeric};
-  --monospace-font-family: #{$monospace-font-family};
-
-  --minimum-body-font-size: #{$minimum-body-font-size};
-  --maximum-body-font-size: #{$maximum-body-font-size};
-  --ideal-body-font-size: #{$ideal-body-font-size};
-
-  --default-line-height: #{$default-line-height};
-  --default-max-width: #{$default-max-width};
-
   background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--default-font-family);
+  color: var(--foreground-color);
+  font-family: var(--serif-font-family);
   font-size: clamp(var(--minimum-body-font-size), var(--ideal-body-font-size), var(--maximum-body-font-size));
-  font-variant-numeric: var(--default-font-variant-numeric);
-  line-height: var(--default-line-height);
+  line-height: var(--body-copy-line-height);
 }

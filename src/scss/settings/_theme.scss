@@ -1,27 +1,35 @@
-$background-color: $gray-10;
-$text-color: $gray-100;
-$link-color: $gray-100;
-$link-hover-color: $gray-80;
-$code-color: $sky-80;
+:root {
+  --theme-hue: 230;
+  --theme-saturation: 50%;
+  --theme-background-brightness: 96%;
+  --theme-foreground-brightness: 10%;
+  --theme-hover-brightness: 35%;
 
-$dark-mode-background-color: $gray-100;
-$dark-mode-text-color: $gray-10;
-$dark-mode-link-color: $gray-10;
-$dark-mode-link-hover-color: $gray-30;
-$dark-mode-code-color: $sky-20;
+  --background-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-background-brightness, 96%));
+  --foreground-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-foreground-brightness, 10%));
+  --hover-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-hover-brightness, 35%));
 
-$font-scale-ratio: 1.2;
-$default-font-size: 1rem;
+  --font-scale-ratio: 1.2;
+  --default-font-size: 1rem;
+  --font-size-md: var(--default-font-size);
+  --font-size-sm: calc(var(--font-size-md) / var(--font-scale-ratio));
+  --font-size-xs: calc(var(--font-size-sm) / var(--font-scale-ratio));
+  --font-size-lg: calc(var(--font-size-md) * var(--font-scale-ratio));
+  --font-size-xl: calc(var(--font-size-lg) * var(--font-scale-ratio));
+  --font-size-xxl: calc(var(--font-size-xl) * var(--font-scale-ratio));
+  --font-size-xxxl: calc(var(--font-size-xxl) * var(--font-scale-ratio));
 
-$minimum-body-font-size: 1rem;
-$maximum-body-font-size: 1.4rem;
-$ideal-body-font-size: 4.5vw;
+  --minimum-body-font-size: 1rem;
+  --maximum-body-font-size: 1.5rem;
+  --ideal-body-font-size: 2.5vw;
 
-$default-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-$default-font-variant-numeric: tabular-nums;
-$monospace-font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  --sans-serif-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  --serif-font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --monospace-font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 
-$default-line-height: 1.2;
-$default-max-width: 60ch;
+  --heading-line-height: 1.2;
+  --body-copy-line-height: 1.2;
+  --default-max-width: 60ch;
 
-$heading-font-weight: 700;
+  --heading-font-weight: 700;
+}

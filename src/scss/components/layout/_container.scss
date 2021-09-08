@@ -2,7 +2,8 @@
   --container-gutter: 1rem;
   --container-max-width: var(--default-max-width);
 
-  width: calc(100% - (var(--container-gutter) * 2));
-  max-width: var(--container-max-width);
+  box-sizing: content-box;
+  width: calc(100% - (var(--container-gutter, 1rem) * 2));
+  max-width: var(--container-max-width, 60ch);
   margin-inline: auto;
 }
