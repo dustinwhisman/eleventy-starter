@@ -9,7 +9,7 @@ open a form for you to create a new repo with all the files from this one.
     catch-all 404 page
   - [x] Sass support with minimal/brutalist styles ready to go, including dark
     mode
-  - [ ] JS bundling with modern/legacy builds
+  - [x] JS bundling with modern/legacy builds
   - [ ] Most PWA requirements already met
   - [ ] A service worker with reasonable defaults for different types of
     requests
@@ -66,19 +66,20 @@ follows:
 ## JavaScript
 
 JavaScript files are bundled by Rollup from `src/assets/js` into modern or
-legacy bundles in `dist/js`. Legacy bundles use Babel to transpile JS into
-syntax understood by older browsers. To deliver the right scripts to the right
-browsers, follow the module/nomodule pattern:
+legacy bundles in `dist/js/bundled` or `dist/js/legacy`, respectively. Legacy
+bundles use Babel to transpile JS into syntax understood by older browsers. To
+deliver the right scripts to the right browsers, follow the module/nomodule
+pattern:
 
 ```html
-<script src="/dist/js/scripts.js" type="module"></script>
-<script src="/dist/js/scripts.legacy.js" nomodule></script>
+<script src="/dist/js/bundled/scripts.js" type="module"></script>
+<script src="/dist/js/legacy/scripts.js" nomodule></script>
 ```
 
-If you don't want to bundle or transpile your scripts, use the `.mjs` file
-extension for your JS files, and define them as `modules`. This may improve
-performance, depending on the size and number of files that would otherwise be
-bundled together.
+If you don't want to serve bundled or transpiled versions of your scripts, we
+recommend using the `.mjs` file extension for your JS files, and using
+`type=module` in your `script` tags. This may improve performance, depending on
+the size and number of files that would otherwise be bundled together.
 
 ```html
 <script src="/dist/js/non-bundled-script.mjs" type="module"></script>
