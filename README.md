@@ -10,9 +10,9 @@ open a form for you to create a new repo with all the files from this one.
   - [x] Sass support with minimal/brutalist styles ready to go, including dark
     mode
   - [x] JS bundling with modern/legacy builds
-  - [ ] Most PWA requirements already met
-  - [ ] A service worker with reasonable defaults for different types of
-    requests
+  - [x] Minimal PWA requirements already met
+  - [x] A service worker with precaching and a basic
+    cache-falling-back-to-network strategy in place
   - [ ] Documentation explaining what to change, what to delete, and how things
     work
 
@@ -45,7 +45,7 @@ many different kinds of templating languages, so check out the
 
 This project uses [Sass](https://sass-lang.com/) to compile into CSS.
 Boilerplate styles are in the `src/assets/scss` folder and are output to the
-`dist/css` folder.
+`dist/assets/css` folder.
 
 Sass is organized into folders following an ITCSS convention. The folders are as
 follows:
@@ -66,14 +66,14 @@ follows:
 ## JavaScript
 
 JavaScript files are bundled by Rollup from `src/assets/js` into modern or
-legacy bundles in `dist/js/bundled` or `dist/js/legacy`, respectively. Legacy
-bundles use Babel to transpile JS into syntax understood by older browsers. To
-deliver the right scripts to the right browsers, follow the module/nomodule
-pattern:
+legacy bundles in `dist/assets/js/bundled` or `dist/assets/js/legacy`,
+respectively. Legacy bundles use Babel to transpile JS into syntax understood by
+older browsers. To deliver the right scripts to the right browsers, follow the
+module/nomodule pattern:
 
 ```html
-<script src="/dist/js/bundled/scripts.js" type="module"></script>
-<script src="/dist/js/legacy/scripts.js" nomodule></script>
+<script src="/dist/assets/js/bundled/scripts.js" type="module"></script>
+<script src="/dist/assets/js/legacy/scripts.js" nomodule></script>
 ```
 
 If you don't want to serve bundled or transpiled versions of your scripts, we
@@ -82,7 +82,7 @@ recommend using the `.mjs` file extension for your JS files, and using
 the size and number of files that would otherwise be bundled together.
 
 ```html
-<script src="/dist/js/non-bundled-script.mjs" type="module"></script>
+<script src="/dist/assets/js/non-bundled-script.mjs" type="module"></script>
 ```
 
 ## PWA Requirements
@@ -91,8 +91,31 @@ Manifest files, default icons, and the correct meta tags should get you most of
 the way to having a working PWA. You will need to update theme colors and icons,
 but the infrastructure should already be in place.
 
+Files to update or replace (as desired):
+- `src/root/favicon.png`
+- `src/root/favicon.svg`
+- `src/root/manifest.json`
+- `src/root/maskable_icon.png`
+- `src/root/splash_icon.png`
+- The `<meta name="theme-color" content="#202020">` tag in any layout templates
+
+## robots.txt
+
+By default, this includes an empty `robots.txt` file, which will allow any and
+all robots to crawl all pages of your site. If you want to change that, update
+`src/root/robots.txt` with your rules (more info
+[here](https://developers.google.com/search/docs/advanced/robots/intro))
+
 ## Service Worker
 
-The default service worker should have sensible defaults for different types of
-requests, using patterns like cache-falling-back-to-network, network-only,
-cache-and-network-race, etc. to make your site lightning fast.
+The default service worker will precache the home page and the main CSS file,
+and it will ignore any URLs from `localhost`. All requests will follow a
+cache-falling-back-to-network strategy. Every time the site is built by
+Eleventy, a new version number will be given to the service worker, which should
+keep you from being bit by cached resources on deploys.
+
+You can specify more routes to precache or exclude, as well as any hostnames to
+exclude, such as a CDN, for example. To add more caching strategies for
+different types of requests, check out the [Service Worker
+Cookbook](https://serviceworke.rs/) by Mozilla or [The Offline
+Cookbook](https://jakearchibald.com/2014/offline-cookbook/) by Jake Archibald.

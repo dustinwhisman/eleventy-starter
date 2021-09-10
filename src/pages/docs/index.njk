@@ -9,7 +9,7 @@ layout: layouts/docs.njk
     Documentation
   </h1>
 
-  <ul class="util-no-list-style">
+  <ul class="util-no-list-style cmp-stack" style="--stack-space: 0.5rem">
     {%- for doc in collections.docs -%}
       <li>
         <a href="{{ doc.url }}">

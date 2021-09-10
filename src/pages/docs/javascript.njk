@@ -31,11 +31,11 @@ src/assets/js/
 </pre>
 
   <p>
-    Those bundled JS files would land in <code>dist/js/bundled</code>, keeping
-    their original names and file extensions.
+    Those bundled JS files would land in <code>dist/assets/js/bundled</code>,
+    keeping their original names and file extensions.
   </p>
 <pre>
-dist/js/bundled/
+dist/assets/js/bundled/
 |– example.js
 |– example-2.mjs
 </pre>
@@ -45,7 +45,7 @@ dist/js/bundled/
     to go.
   </p>
 <pre>
-&lt;script src="/js/bundled/example.js"&gt;&lt;/script&gt;
+&lt;script src="/assets/js/bundled/example.js"&gt;&lt;/script&gt;
 </pre>
 
   <h2>
@@ -55,7 +55,7 @@ dist/js/bundled/
     What if you don't want to bundle your JS, though? Support for ES modules is
     pretty good these days, so it may not make sense to bundle everything. To
     handle that use-case, your <code>src/assets/js</code> folder is copied to
-    <code>dist/js</code>, so you can use those files directly.
+    <code>dist/assets/js</code>, so you can use those files directly.
   </p>
   <p>
     When doing this, make sure to specify the file extension in your imports, so
@@ -76,7 +76,7 @@ console.log(add(4, 4));
 console.log(subtract(5, 2));
 
 &lt;!-- html --&gt;
-&lt;script src="/js/example-2.mjs" type="module"&gt;&lt;/script&gt;
+&lt;script src="/assets/js/example-2.mjs" type="module"&gt;&lt;/script&gt;
 </pre>
 
   <h2>
@@ -93,19 +93,19 @@ console.log(subtract(5, 2));
   </p>
 <pre>
 &lt;!-- serve bundled script to modern browsers --&gt;
-&lt;script src="/js/bundled/example.js" type="module"&gt;&lt;/script&gt;
-&lt;script src="/js/legacy/example.js" nomodule&gt;&lt;/script&gt;
+&lt;script src="/assets/js/bundled/example.js" type="module"&gt;&lt;/script&gt;
+&lt;script src="/assets/js/legacy/example.js" nomodule&gt;&lt;/script&gt;
 
 &lt;!-- serve ES Modules to modern browsers --&gt;
-&lt;script src="/js/example-2.mjs" type="module"&gt;&lt;/script&gt;
-&lt;script src="/js/legacy/example-2.js" nomodule&gt;&lt;/script&gt;
+&lt;script src="/assets/js/example-2.mjs" type="module"&gt;&lt;/script&gt;
+&lt;script src="/assets/js/legacy/example-2.js" nomodule&gt;&lt;/script&gt;
 </pre>
 </article>
 
 <!-- serve bundled script to modern browsers -->
-<script src="/js/bundled/example.js" type="module"></script>
-<script src="/js/legacy/example.js" nomodule></script>
+<script src="/assets/js/bundled/example.js" type="module"></script>
+<script src="/assets/js/legacy/example.js" nomodule></script>
 
 <!-- serve ES Modules to modern browsers -->
-<script src="/js/example-2.mjs" type="module"></script>
-<script src="/js/legacy/example-2.js" nomodule></script>
+<script src="/assets/js/example-2.mjs" type="module"></script>
+<script src="/assets/js/legacy/example-2.js" nomodule></script>

@@ -10,7 +10,7 @@ files.forEach((file) => {
   configs.push({
     input: `src/assets/js/${file}`,
     output: {
-      file: `dist/js/bundled/${file}`,
+      file: `dist/assets/js/bundled/${file}`,
       format: 'iife',
     },
     plugins: [
@@ -22,7 +22,7 @@ files.forEach((file) => {
   configs.push({
     input: `src/assets/js/${file}`,
     output: {
-      file: `dist/js/legacy/${file}`.replace('.mjs', '.js'),
+      file: `dist/assets/js/legacy/${file}`.replace('.mjs', '.js'),
       format: 'iife',
     },
     plugins: [
