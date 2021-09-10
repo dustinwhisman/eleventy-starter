@@ -1,9 +1,12 @@
+// settings
 @import './settings/theme';
 
+// generic
 @import './generic/reset';
 @import './generic/root';
 @import './generic/dark-mode';
 
+// elements
 @import './elements/headings';
 @import './elements/paragraphs';
 @import './elements/lists';
@@ -11,10 +14,12 @@
 @import './elements/code';
 @import './elements/pre';
 
+// components
 @import './components/layout/container';
 @import './components/layout/center';
 @import './components/layout/stack';
 @import './components/layout/cluster';
 @import './components/layout/spread';
 
+// utilities
 @import './utilities/utilities';

@@ -1,3 +1,6 @@
+/* global VERSION */
+/* eslint-disable no-restricted-globals */
+
 const CACHE_KEYS = {
   PRE_CACHE: `precache-${VERSION}`,
   RUNTIME: `runtime-${VERSION}`,
@@ -14,14 +17,14 @@ const PRE_CACHE_URLS = [
 
 // add any hosts that you want to bypass
 const IGNORED_HOSTS = [
-  'localhost'
+  'localhost',
 ];
 
 const addItemsToCache = (cacheName, items = []) => {
-  caches.open(cacheName).then(cache => cache.addAll(items));
+  caches.open(cacheName).then((cache) => cache.addAll(items));
 };
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', () => {
   self.skipWaiting();
 
   addItemsToCache(CACHE_KEYS.PRE_CACHE, PRE_CACHE_URLS);
@@ -31,9 +34,9 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then(cacheNames => cacheNames.filter(item => !Object.values(CACHE_KEYS).includes(item)))
-      .then((itemsToDelete) => Promise.all(itemsToDelete.map(item => caches.delete(item))))
-      .then(() => self.clients.claim())
+      .then((cacheNames) => cacheNames.filter((item) => !Object.values(CACHE_KEYS).includes(item)))
+      .then((itemsToDelete) => Promise.all(itemsToDelete.map((item) => caches.delete(item))))
+      .then(() => self.clients.claim()),
   );
 });
 
@@ -46,7 +49,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   // if it's an exluded url, do nothing
-  if (EXCLUDED_URLS.some(page => event.request.url.indexOf(page) > -1)) {
+  if (EXCLUDED_URLS.some((page) => event.request.url.indexOf(page) > -1)) {
     return;
   }
 
@@ -63,9 +66,9 @@ self.addEventListener('fetch', (event) => {
             cache.put(event.request, response.clone()).then(() => response)
           ))
           .catch(() => {
-            return;
+
           })
       ));
-    })
+    }),
   );
 });

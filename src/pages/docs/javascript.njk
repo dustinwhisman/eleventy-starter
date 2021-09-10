@@ -58,10 +58,11 @@ dist/assets/js/bundled/
     <code>dist/assets/js</code>, so you can use those files directly.
   </p>
   <p>
-    When doing this, make sure to specify the file extension in your imports, so
-    browsers will know how to find the correct files. Its recommended to use the
-    <code>.mjs</code> extension to make it clear that you don't intend to use
-    the bundled version, even though one will be created at build time.
+    For safety, make sure to specify the file extension in your imports, so
+    browsers will know how to find the correct files (if you forget, eslint will
+    yell at you). Its recommended to use the <code>.mjs</code> extension to make
+    it clear that you don't intend to use the bundled version, even though one
+    will be created at build time.
   </p>
   <p>
     You will also need to specify <code>type="module"</code> in your

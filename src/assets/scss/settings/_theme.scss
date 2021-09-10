@@ -1,14 +1,15 @@
 :root {
+  // theme color settings using hsl
   --theme-hue: 230;
   --theme-saturation: 50%;
   --theme-background-brightness: 96%;
   --theme-foreground-brightness: 10%;
   --theme-hover-brightness: 35%;
-
   --background-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-background-brightness, 96%));
   --foreground-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-foreground-brightness, 10%));
   --hover-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-hover-brightness, 35%));
 
+  // font size settings
   --font-scale-ratio: 1.2;
   --default-font-size: 1rem;
   --font-size-md: var(--default-font-size);
@@ -19,17 +20,21 @@
   --font-size-xxl: calc(var(--font-size-xl) * var(--font-scale-ratio));
   --font-size-xxxl: calc(var(--font-size-xxl) * var(--font-scale-ratio));
 
+  // fluid type settings
   --minimum-body-font-size: 1rem;
   --maximum-body-font-size: 1.5rem;
   --ideal-body-font-size: 2.5vw;
 
-  --sans-serif-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
-  --serif-font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  --monospace-font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  // font family settings
+  --sans-serif-font-family: -apple-system, 'BlinkMacSystemFont', 'avenir next', 'avenir', 'segoe ui', 'helvetica neue', 'helvetica', 'Ubuntu', 'roboto', 'noto', 'arial', sans-serif;
+  --serif-font-family: 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --monospace-font-family: 'Consolas', 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Monaco', 'Courier New', 'Courier', monospace;
 
+  // readability settings (line height and length)
   --heading-line-height: 1.2;
-  --body-copy-line-height: 1.2;
+  --body-copy-line-height: 1.5;
   --default-max-width: 60ch;
 
+  // font weight settings
   --heading-font-weight: 700;
 }
