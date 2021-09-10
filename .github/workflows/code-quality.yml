@@ -1,0 +1,16 @@
+name: Code Quality
+on: [pull_request]
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install npm dependencies
+        run: npm install
+      - name: lint css
+        run: npm run lint:css
+      - name: lint js
+        run: npm run lint:js
+      - name: test js
+        run: npm run test:js
