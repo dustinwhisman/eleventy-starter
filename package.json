@@ -41,7 +41,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
     "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.39.0",
+    "sass": "^1.39.2",
     "terser": "^5.7.2"
   }
 }
