@@ -4,6 +4,9 @@
     "stylelint-config-sass-guidelines"
   ],
   "rules": {
-    "order/properties-alphabetical-order": null
+    "order/properties-alphabetical-order": null,
+    "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }],
+    "max-nesting-depth": 2,
+    "property-no-vendor-prefix": [true, { "ignoreProperties": ["appearance"] }]
   }
 }

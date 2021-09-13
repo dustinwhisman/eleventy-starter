@@ -1,0 +1,292 @@
+---
+title: Forms
+description: This demonstrates form elements and their usage.
+tags: docs
+layout: layouts/default.njk
+---
+
+<article class="cmp-container cmp-stack">
+  <h1>
+    Forms
+  </h1>
+  <p>
+    Form elements are extremely common and often very similar, so by default,
+    the styles are based on the elements themselves and don't require additional
+    classes.
+  </p>
+
+  <h2>
+    Inputs & Labels
+  </h2>
+  <p>
+    Apart from checkboxes, radio buttons, and range inputs, all input types
+    should have the same basic styles. It's recommended to wrap each
+    <code>label</code> and <code>input</code> pair in a <code>div</code> to
+    preserve the vertical rhythm of the page.
+  </p>
+  <p>
+    Best practices apply here. Make sure each <code>input</code> has an
+    <code>id</code> attribute that matches the <code>for</code> attribute of its
+    <code>label</code>. The <code>input</code> also must have a valid
+    <code>type</code>, and most likely a <code>name</code>.
+  </p>
+
+  <div>
+    <label for="basic-input">Basic Input</label>
+    <input id="basic-input" type="text" name="basic-input">
+  </div>
+
+<pre>
+&lt;div&gt;
+  &lt;label for="basic-input"&gt;Basic Input&lt;/label&gt;
+  &lt;input id="basic-input" type="text" name="basic-input"&gt;
+&lt;/div&gt;
+</pre>
+
+  <h2>
+    Textareas
+  </h2>
+  <p>
+    The <code>textarea</code> element is meant for longer-form text, so it is
+    allowed to be wider than the default <code>input</code>. Do not set the
+    <code>cols</code> attribute, as the width should be determined by the size
+    of the screen. You may use <code>rows</code> to set the initial height,
+    though, and users will be able to resize it as they see fit.
+  </p>
+
+  <div>
+    <label for="basic-textarea">Basic Textarea</label>
+    <textarea id="basic-textarea" name="basic-textarea" rows="5"></textarea>
+  </div>
+
+<pre>
+&lt;div&gt;
+  &lt;label for="basic-textarea"&gt;Basic Textarea&lt;/label&gt;
+  &lt;textarea id="basic-textarea" name="basic-textarea" rows="5"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+</pre>
+
+  <h2>
+    Buttons
+  </h2>
+  <p>
+    The <code>button</code> element doesn't technically require a
+    <code>type</code>, but sometimes being explicit is better overall. Buttons
+    can be standalone, or they can be used in cluster components for grouping.
+  </p>
+
+  <button type="button">Click Me!</button>
+
+  <div class="cmp-cluster">
+    <button type="button">No, Click Me!</button>
+    <button type="button">No, Me!</button>
+    <button type="button">I Want to be Clicked!</button>
+  </div>
+
+<pre>
+&lt;button type="button"&gt;Click Me!&lt;/button&gt;
+
+&lt;div class="cmp-cluster"&gt;
+  &lt;button type="button"&gt;No, Click Me!&lt;/button&gt;
+  &lt;button type="button"&gt;No, Me!&lt;/button&gt;
+  &lt;button type="button"&gt;I Want to be Clicked!&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+
+  <h2>
+    Selects
+  </h2>
+  <p>
+    Before continuing, remember to
+    <a href="https://www.youtube.com/watch?v=CUkMCQR4TpY">burn your select tags</a>.
+    With that out of the way, if you do decide to use one, here's how it will
+    look. Checkboxes or radio buttons are often better choices, though.
+  </p>
+  <p>
+    One thing worth noting is that this requires a wrapper class to make the
+    dropdown caret appear. If you forget it, it will look like a regular input.
+  </p>
+
+  <div class="elem-select-wrapper">
+    <label for="single-select">Single Select</label>
+    <select id="single-select" name="single-select">
+      <option value="">Choose Something</option>
+      <option value="one">Thing One</option>
+      <option value="two">Thing Two</option>
+      <option value="three">Thing Three</option>
+    </select>
+  </div>
+
+<pre>
+&lt;div class="elem-select-wrapper"&gt;
+  &lt;label for="single-select"&gt;Single Select&lt;/label&gt;
+  &lt;select id="single-select" name="single-select"&gt;
+    &lt;option value=""&gt;Choose Something&lt;/option&gt;
+    &lt;option value="one"&gt;Thing One&lt;/option&gt;
+    &lt;option value="two"&gt;Thing Two&lt;/option&gt;
+    &lt;option value="three"&gt;Thing Three&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+</pre>
+
+  <h3>
+    Multiple Selects
+  </h3>
+  <p>
+    Don't. Just don't. It's a bad idea. But if you do...
+  </p>
+
+  <div class="elem-select-wrapper">
+    <label for="multiple-select">Multiple Select</label>
+    <select id="multiple-select" name="multiple-select" multiple>
+      <option value="">Choose Some Things</option>
+      <option value="one">Thing One</option>
+      <option value="two">Thing Two</option>
+      <option value="three">Thing Three</option>
+    </select>
+  </div>
+
+<pre>
+&lt;div class="elem-select-wrapper"&gt;
+  &lt;label for="multiple-select"&gt;Multiple Select&lt;/label&gt;
+  &lt;select id="multiple-select" name="multiple-select" multiple&gt;
+    &lt;option value=""&gt;Choose Something&lt;/option&gt;
+    &lt;option value="one"&gt;Thing One&lt;/option&gt;
+    &lt;option value="two"&gt;Thing Two&lt;/option&gt;
+    &lt;option value="three"&gt;Thing Three&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+</pre>
+
+  <p>
+    You know what, I'm not going to fix the dropdown caret for this use-case.
+    Let that be further discouragement from using this control.
+  </p>
+
+  <h2>
+    Checkboxes & Radio Buttons
+  </h2>
+  <p>
+    Whenever there are multiple options, you should wrap them in a
+    <code>fieldset</code> with a <code>legend</code> that describes the set of
+    options.
+  </p>
+  <p>
+    If the user should be allowed to choose multiple options, use checkboxes. If
+    they can only choose one of the options, use radio buttons. These styles are
+    written for explicitly labeled inputs, so be sure to use <code>for</code>
+    and <code>id</code> attributes instead of wrapping inputs with labels.
+  </p>
+  <p>
+    Always use <code>name</code> and <code>value</code> attributes so the users'
+    choices are correctly selected.
+  </p>
+
+  <fieldset>
+    <legend>
+      Checkboxes
+    </legend>
+    <div class="cmp-stack" style="--stack-space: 0.5rem">
+      <div>
+        <input id="checkbox-1" type="checkbox" name="checkbox-example" value="one">
+        <label for="checkbox-1">
+          Thing One
+        </label>
+      </div>
+      <div>
+        <input id="checkbox-2" type="checkbox" name="checkbox-example" value="two">
+        <label for="checkbox-2">
+          Thing Two
+        </label>
+      </div>
+      <div>
+        <input id="checkbox-3" type="checkbox" name="checkbox-example" value="three">
+        <label for="checkbox-3">
+          Thing Three
+        </label>
+      </div>
+    </div>
+  </fieldset>
+
+<pre>
+&lt;fieldset&gt;
+  &lt;legend&gt;
+    Checkboxes
+  &lt;/legend&gt;
+  &lt;div class="cmp-stack" style="--stack-space: 0.5rem"&gt;
+    &lt;div&gt;
+      &lt;input id="checkbox-1" type="checkbox" name="checkbox-example" value="one"&gt;
+      &lt;label for="checkbox-1"&gt;
+        Thing One
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;input id="checkbox-2" type="checkbox" name="checkbox-example" value="two"&gt;
+      &lt;label for="checkbox-2"&gt;
+        Thing Two
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;input id="checkbox-3" type="checkbox" name="checkbox-example" value="three"&gt;
+      &lt;label for="checkbox-3"&gt;
+        Thing Three
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;
+</pre>
+
+  <fieldset>
+    <legend>
+      Radio Buttons
+    </legend>
+    <div class="cmp-stack" style="--stack-space: 0.5rem">
+      <div>
+        <input id="radio-1" type="radio" name="radio-example" value="one">
+        <label for="radio-1">
+          Thing One
+        </label>
+      </div>
+      <div>
+        <input id="radio-2" type="radio" name="radio-example" value="two">
+        <label for="radio-2">
+          Thing Two
+        </label>
+      </div>
+      <div>
+        <input id="radio-3" type="radio" name="radio-example" value="three">
+        <label for="radio-3">
+          Thing Three
+        </label>
+      </div>
+    </div>
+  </fieldset>
+
+<pre>
+&lt;fieldset&gt;
+  &lt;legend&gt;
+    Radio Buttons
+  &lt;/legend&gt;
+  &lt;div class="cmp-stack" style="--stack-space: 0.5rem"&gt;
+    &lt;div&gt;
+      &lt;input id="radio-1" type="radio" name="radio-example" value="one"&gt;
+      &lt;label for="radio-1"&gt;
+        Thing One
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;input id="radio-2" type="radio" name="radio-example" value="two"&gt;
+      &lt;label for="radio-2"&gt;
+        Thing Two
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;input id="radio-3" type="radio" name="radio-example" value="three"&gt;
+      &lt;label for="radio-3"&gt;
+        Thing Three
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;
+</pre>
+</article>

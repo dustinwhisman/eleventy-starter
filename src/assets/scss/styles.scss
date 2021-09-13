@@ -1,3 +1,6 @@
+// tools
+@import './tools/mixins';
+
 // settings
 @import './settings/fonts';
 @import './settings/theme';
@@ -15,6 +18,17 @@
 @import './elements/code';
 @import './elements/pre';
 @import './elements/description-lists';
+
+// form elements
+@import './elements/forms/button';
+@import './elements/forms/checkbox';
+@import './elements/forms/fieldset';
+@import './elements/forms/input';
+@import './elements/forms/label';
+@import './elements/forms/legend';
+@import './elements/forms/radio';
+@import './elements/forms/select';
+@import './elements/forms/textarea';
 
 // components
 @import './components/layout/container';

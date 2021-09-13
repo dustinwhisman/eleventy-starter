@@ -1,0 +1,20 @@
+select {
+  @include input-styles;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.elem-select-wrapper::after {
+  content: '';
+  display: inline-block;
+  height: 0.5em;
+  width: 0.5em;
+  position: relative;
+  top: -0.125em;
+  right: 1.5em;
+  border-inline-end: 0.125em solid var(--foreground-color);
+  border-block-end: 0.125em solid var(--foreground-color);
+  transform: rotate(45deg);
+}
