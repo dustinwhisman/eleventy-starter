@@ -2,25 +2,27 @@
 title: Using JavaScript
 description: This describes how to use JavaScript for modern/legacy browsers.
 tags: docs
-layout: layouts/docs.njk
 ---
 
-<article class="cmp-container cmp-stack">
-  <h1>
-    Using JavaScript
-  </h1>
-  <p>
-    This project handles JavaScript by convention. Putting a <code>.js</code> or
-    <code>.mjs</code> file in <code>src/assets/js</code> will automatically
-    signify it as an entry point for bundling. Any subfolders will not be used
-    as entrypoints, so it's recommended to organize your JS in subfolders, and
-    then import what you need into files at the <code>src/assets/js</code>
-    level.
-  </p>
-  <p>
-    For example, given this structure, two bundles would be created for
-    <code>example.js</code> and <code>example-2.mjs</code>.
-  </p>
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+  <article class="cmp-container cmp-stack">
+    <h1>
+      Using JavaScript
+    </h1>
+    <p>
+      This project handles JavaScript by convention. Putting a <code>.js</code> or
+      <code>.mjs</code> file in <code>src/assets/js</code> will automatically
+      signify it as an entry point for bundling. Any subfolders will not be used
+      as entrypoints, so it's recommended to organize your JS in subfolders, and
+      then import what you need into files at the <code>src/assets/js</code>
+      level.
+    </p>
+    <p>
+      For example, given this structure, two bundles would be created for
+      <code>example.js</code> and <code>example-2.mjs</code>.
+    </p>
 <pre>
 src/assets/js/
 |– utilities/
@@ -30,44 +32,44 @@ src/assets/js/
 |– example-2.mjs
 </pre>
 
-  <p>
-    Those bundled JS files would land in <code>dist/assets/js/bundled</code>,
-    keeping their original names and file extensions.
-  </p>
+    <p>
+      Those bundled JS files would land in <code>dist/assets/js/bundled</code>,
+      keeping their original names and file extensions.
+    </p>
 <pre>
 dist/assets/js/bundled/
 |– example.js
 |– example-2.mjs
 </pre>
 
-  <p>
-    Include the file in a standard <code>script</code> element, and you're good
-    to go.
-  </p>
+    <p>
+      Include the file in a standard <code>script</code> element, and you're good
+      to go.
+    </p>
 <pre>
 &lt;script src="/assets/js/bundled/example.js"&gt;&lt;/script&gt;
 </pre>
 
-  <h2>
-    Non-Bundled Scripts
-  </h2>
-  <p>
-    What if you don't want to bundle your JS, though? Support for ES modules is
-    pretty good these days, so it may not make sense to bundle everything. To
-    handle that use-case, your <code>src/assets/js</code> folder is copied to
-    <code>dist/assets/js</code>, so you can use those files directly.
-  </p>
-  <p>
-    For safety, make sure to specify the file extension in your imports, so
-    browsers will know how to find the correct files (if you forget, eslint will
-    yell at you). Its recommended to use the <code>.mjs</code> extension to make
-    it clear that you don't intend to use the bundled version, even though one
-    will be created at build time.
-  </p>
-  <p>
-    You will also need to specify <code>type="module"</code> in your
-    <code>script</code> tag.
-  </p>
+    <h2>
+      Non-Bundled Scripts
+    </h2>
+    <p>
+      What if you don't want to bundle your JS, though? Support for ES modules is
+      pretty good these days, so it may not make sense to bundle everything. To
+      handle that use-case, your <code>src/assets/js</code> folder is copied to
+      <code>dist/assets/js</code>, so you can use those files directly.
+    </p>
+    <p>
+      For safety, make sure to specify the file extension in your imports, so
+      browsers will know how to find the correct files (if you forget, eslint will
+      yell at you). Its recommended to use the <code>.mjs</code> extension to make
+      it clear that you don't intend to use the bundled version, even though one
+      will be created at build time.
+    </p>
+    <p>
+      You will also need to specify <code>type="module"</code> in your
+      <code>script</code> tag.
+    </p>
 <pre>
 // example-2.mjs
 import { add } from './utilities/add.js';
@@ -80,18 +82,18 @@ console.log(subtract(5, 2));
 &lt;script src="/assets/js/example-2.mjs" type="module"&gt;&lt;/script&gt;
 </pre>
 
-  <h2>
-    Legacy Bundles
-  </h2>
-  <p>
-    In case you need to support an older browser that doesn't support ES
-    Modules, you can use the module/nomodule pattern to serve modern JS to
-    modern browsers and legacy JS to older browsers (lookin' at you IE11).
-  </p>
-  <p>
-    Every entrypoint is bundled twice, once for modern browsers, and once for
-    legacy browsers.
-  </p>
+    <h2>
+      Legacy Bundles
+    </h2>
+    <p>
+      In case you need to support an older browser that doesn't support ES
+      Modules, you can use the module/nomodule pattern to serve modern JS to
+      modern browsers and legacy JS to older browsers (lookin' at you IE11).
+    </p>
+    <p>
+      Every entrypoint is bundled twice, once for modern browsers, and once for
+      legacy browsers.
+    </p>
 <pre>
 &lt;!-- serve bundled script to modern browsers --&gt;
 &lt;script src="/assets/js/bundled/example.js" type="module"&gt;&lt;/script&gt;
@@ -101,12 +103,15 @@ console.log(subtract(5, 2));
 &lt;script src="/assets/js/example-2.mjs" type="module"&gt;&lt;/script&gt;
 &lt;script src="/assets/js/legacy/example-2.js" nomodule&gt;&lt;/script&gt;
 </pre>
-</article>
+  </article>
+{% endblock %}
 
-<!-- serve bundled script to modern browsers -->
-<script src="/assets/js/bundled/example.js" type="module"></script>
-<script src="/assets/js/legacy/example.js" nomodule></script>
+{% block scripts %}
+  <!-- serve bundled script to modern browsers -->
+  <script src="/assets/js/bundled/example.js" type="module"></script>
+  <script src="/assets/js/legacy/example.js" nomodule></script>
 
-<!-- serve ES Modules to modern browsers -->
-<script src="/assets/js/example-2.mjs" type="module"></script>
-<script src="/assets/js/legacy/example-2.js" nomodule></script>
+  <!-- serve ES Modules to modern browsers -->
+  <script src="/assets/js/example-2.mjs" type="module"></script>
+  <script src="/assets/js/legacy/example-2.js" nomodule></script>
+{% endblock %}
