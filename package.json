@@ -54,6 +54,6 @@
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-config-standard": "^22.0.0",
-    "terser": "^5.7.2"
+    "terser": "^5.8.0"
   }
 }
