@@ -1,0 +1,11 @@
+<div class="cmp-cluster">
+  <a href="/{{ eleventyComputed.pathSegment }}" {% if page.url == "/" + eleventyComputed.pathSegment + "/" %}hidden{% endif %}>
+    English
+  </a>
+  <a href="/es/{{ eleventyComputed.pathSegment }}" {% if page.url == "/es/" + eleventyComputed.pathSegment + "/" %}hidden{% endif %}>
+    Español
+  </a>
+  <a href="/fr/{{ eleventyComputed.pathSegment }}" {% if page.url == "/fr/" + eleventyComputed.pathSegment + "/" %}hidden{% endif %}>
+    Français
+  </a>
+</div>
