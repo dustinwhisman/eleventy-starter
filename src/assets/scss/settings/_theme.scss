@@ -5,9 +5,11 @@
   --theme-background-brightness: 96%;
   --theme-foreground-brightness: 10%;
   --theme-hover-brightness: 35%;
+  --theme-shadow-brightness: 60%;
   --background-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-background-brightness, 96%));
   --foreground-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-foreground-brightness, 10%));
   --hover-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-hover-brightness, 35%));
+  --shadow-color: hsl(var(--theme-hue, 0), var(--theme-saturation, 0), var(--theme-shadow-brightness, 60%));
 
   // font size settings
   --font-scale-ratio: 1.2;

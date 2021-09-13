@@ -1,0 +1,5 @@
+textarea {
+  @include input-styles;
+
+  width: min(60ch, 100%);
+}

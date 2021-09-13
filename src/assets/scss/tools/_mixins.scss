@@ -1,0 +1,18 @@
+@mixin input-styles {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  border: 0.125em solid var(--foreground-color);
+  padding: 0.25em 0.5em;
+  width: min(40ch, 100%);
+  font-size: var(--font-size-sm);
+}
+
+@mixin visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

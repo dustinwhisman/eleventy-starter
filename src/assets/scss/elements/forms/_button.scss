@@ -1,0 +1,7 @@
+button {
+  @include input-styles;
+
+  width: max-content;
+  max-width: 100%;
+  box-shadow: 0.2em 0.2em 0 0 var(--shadow-color);
+}
