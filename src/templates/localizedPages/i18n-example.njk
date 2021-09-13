@@ -1,0 +1,22 @@
+{% extends "layouts/default.njk" %}
+
+{% block titleAndDescription %}
+  <title>{{ i18n.t('title') }}</title>
+  <meta name="description" content="{{ i18n.t('description') }}">
+{% endblock %}
+
+{% block content %}
+  <main>
+    <article class="cmp-container cmp-stack">
+      <h1>
+        {{ i18n.t('title') }}
+      </h1>
+      <p>
+        {{ i18n.t('phrase') }}
+      </p>
+      <p>
+        {{ i18n.t('variablePhrase', { number: 3 }) }}
+      </p>
+    </article>
+  </main>
+{% endblock %}
