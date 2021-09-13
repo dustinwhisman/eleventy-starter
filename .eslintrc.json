@@ -9,6 +9,10 @@
   },
   "rules": {
     "import/extensions": ["error", "always"],
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "quotes": ["error", "single", {
+      "avoidEscape": true,
+      "allowTemplateLiterals": true
+    }]
   }
 }
