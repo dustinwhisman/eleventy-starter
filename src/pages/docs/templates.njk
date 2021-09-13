@@ -1,0 +1,159 @@
+---
+title: Templates
+description: This describes how to use Markdown or Nunjucks templates, and how to use page-level blocks to override the defaults.
+tags: docs
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+  <article class="cmp-container cmp-stack">
+    <h1>
+      Templates
+    </h1>
+    <p>
+      This project uses a mix of Nunjucks and Markdown to create pages. Markdown
+      works best for blog-style entries, where there is not much need for custom
+      HTML. Nunjucks works best for more involved pages.
+    </p>
+
+    <h2>
+      Layout Templates
+    </h2>
+    <p>
+      In the <code>src/templates/layouts</code> folder, there are a couple page
+      templates. These files are used to define the HTML structure of pages, and
+      they are inherited or extended by individual pages.
+    </p>
+    <p>
+      The layout templates set sensible defaults, but they are allowed to be
+      extended or overridden by individual pages as needed.
+    </p>
+
+    <h2>
+      Front Matter Data
+    </h2>
+    <p>
+      At the top of most, if not all pages, there should be a section for data,
+      indicated by <code>&#8211;&#8211;&#8211;</code> at the top and bottom of
+      the section.
+    </p>
+    <p>
+      At a minimum, the Front Matter should include a <code>title</code> and a
+      <code>description</code>. If the page belongs to a collection, it should
+      also include <code>tags</code>.
+    </p>
+    <p>
+      Often, the Front Matter will also include a definition for the
+      <code>layout</code>, but not always. More on that later.
+    </p>
+<pre>
+&#8211;&#8211;&#8211;
+title: My Page Title
+description: This describes what the page is for in some level of detail.
+tags: docs
+layout: layouts/default.njk
+&#8211;&#8211;&#8211;
+</pre>
+
+    <h2>
+      Extending Layouts & Using Blocks
+    </h2>
+    <p>
+      Some pages will require more customization than is offered in Front
+      Matter. For these cases, instead of defining a layout in Front Matter, you
+      will need to instead <code>extend</code> the layout. This will allow you
+      to use blocks to override or add to the base layout template.
+    </p>
+    <p>
+      To use blocks, you must be using Nunjucks for your templating language.
+      Instead of defining the layout in Front Matter, you must
+      <code>extend</code> the layout template. Then you must create a block with
+      the name of the block that you want to override. Any blocks that are not
+      referenced will use the defaults as defined in the layout template.
+    </p>
+<pre>
+&lcub;% extends "layouts/default.njk" %&rcub;
+
+&lcub;% block content %&rcub;
+  &lt;main&gt;
+    &lt;!-- page content goes here --&gt;
+  &lt;/main&gt;
+&lcub;% endblock %&rcub;
+</pre>
+
+    <p>
+      The blocks that can be used are as follows:
+    </p>
+    <dl>
+      <dt>
+        <code>titleAndDescription</code>
+      </dt>
+      <dd>
+        You probably won't need this, but you can override the
+        <code>title</code> and the description <code>meta</code> tag.
+      </dd>
+
+      <dt>
+        <code>vendorStyles</code>
+      </dt>
+      <dd>
+        This is an empty block right before the <code>link</code> for sitewide
+        CSS. Use this to put any third-party styles that should come before your
+        styles in the cascade.
+      </dd>
+
+      <dt>
+        <code>pageStyles</code>
+      </dt>
+      <dd>
+        This is an empty block right after the <code>link</code> for sitewide
+        CSS. Use this for any page-specific styles that shouldn't apply
+        elsewhere. Beware this approach, though – there are probably better ways
+        to structure your CSS so this isn't necessary.
+      </dd>
+
+      <dt>
+        <code>header</code>
+      </dt>
+      <dd>
+        This wraps the <code>header</code> tag, which houses the default site
+        navigation.
+      </dd>
+
+      <dt>
+        <code>content</code>
+      </dt>
+      <dd>
+        This wraps the main content of the page. If you are extending a layout,
+        you will certainly need to use this – otherwise, you'll have a mostly
+        empty page.
+      </dd>
+
+      <dt>
+        <code>footer</code>
+      </dt>
+      <dd>
+        This wraps the <code>footer</code> tag, which houses the footer of the
+        site. Check the source of this page to see it in action.
+      </dd>
+
+      <dt>
+        <code>scripts</code>
+      </dt>
+      <dd>
+        This is an empty block at the bottom of the <code>body</code> tag. This
+        is where any page-specific JavaScript should go. Anything sitewide
+        should be added to the layout template directly.
+      </dd>
+    </dl>
+  </article>
+{% endblock %}
+
+{% block footer %}
+  <footer class="cmp-container">
+    <p>
+      This footer has been overridden by a page-level <code>block</code>.
+    </p>
+  </footer>
+{% endblock %}

@@ -1,8 +1,3 @@
----
-title: Eleventy Starter
-description: A starter template for getting eleventy projects running quickly.
----
-
 <!doctype html>
 
 <!-- TODO: allow for localization/rtl using data -->
@@ -11,9 +6,10 @@ description: A starter template for getting eleventy projects running quickly.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- TODO: allow for title and description to be overwritten by pages -->
-    <title>{{ renderData.title or title }} | Eleventy Starter</title>
-    <meta name="description" content="{{ description }}">
+    {% block titleAndDescription %}
+      <title>{{ renderData.title or title }} | Eleventy Starter</title>
+      <meta name="description" content="{{ description }}">
+    {% endblock %}
 
     <link rel="apple-touch-icon" href="/maskable_icon.png">
     <link rel="manifest" href="/manifest.json">
@@ -21,26 +17,32 @@ description: A starter template for getting eleventy projects running quickly.
     {% include "partials/favicons.njk" %}
     <meta name="theme-color" content="#202020">
 
+    {% block vendorStyles %}{% endblock %}
     <link rel="stylesheet" href="/assets/css/styles.css">
+    {% block pageStyles %}{% endblock %}
   </head>
   <body>
     <div class="cmp-spread">
       {% block header %}
         {% include "components/header.njk" %}
       {% endblock %}
-      <main>
-        {{ content | safe }}
-      </main>
-      <footer class="cmp-container">
-        <p>
-          This is the footer of the website. It and the header are separated
-          from the main content of the page (and from the top/bottom of the
-          screen) by use of the spread component.
-        </p>
-      </footer>
+      {% block content %}
+        <main>
+          {{ content | safe }}
+        </main>
+      {% endblock %}
+      {% block footer %}
+        <footer class="cmp-container">
+          <p>
+            This is the footer of the website. It and the header are separated
+            from the main content of the page (and from the top/bottom of the
+            screen) by use of the spread component.
+          </p>
+        </footer>
+      {% endblock %}
     </div>
     <!-- TODO: add a script for toggling dark mode favicons -->
-    <!-- TODO: add a block for scripts at end of body tag -->
+    {% block scripts %}{% endblock scripts %}
     {% include "partials/service-worker.njk" %}
   </body>
 </html>

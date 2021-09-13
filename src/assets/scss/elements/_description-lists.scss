@@ -1,0 +1,11 @@
+dt:not(:first-child) {
+  --dt-margin: 1.5rem;
+
+  margin-block-start: var(--dt-margin, 1.5rem);
+}
+
+dd {
+  --dd-margin: 0.5rem;
+
+  margin-block-start: var(--dd-margin, 0.5rem);
+}

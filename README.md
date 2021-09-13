@@ -104,7 +104,7 @@ Files to update or replace (as desired):
 By default, this includes an empty `robots.txt` file, which will allow any and
 all robots to crawl all pages of your site. If you want to change that, update
 `src/root/robots.txt` with your rules (more info
-[here](https://developers.google.com/search/docs/advanced/robots/intro))
+[here](https://developers.google.com/search/docs/advanced/robots/intro)).
 
 ## Service Worker
 
