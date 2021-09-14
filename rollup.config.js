@@ -5,6 +5,15 @@ import { babel } from '@rollup/plugin-babel';
 const files = fs.readdirSync('src/assets/js').filter((file) => file.endsWith('.js') || file.endsWith('.mjs'));
 const configs = [];
 
+if (!files.length) {
+  configs.push({
+    input: 'src/assets/js/.gitkeep',
+    output: {
+      dir: 'dist/assets/js',
+    },
+  });
+}
+
 files.forEach((file) => {
   // modern bundles
   configs.push({
