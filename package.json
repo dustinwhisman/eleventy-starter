@@ -22,7 +22,7 @@
     "js:build": "rollup -c && npm run js:minify",
     "js:watch": "chokidar \"**/src/assets/**/*js\" -c \"npm run js:dev\"",
     "lint:css": "stylelint src/**/*.css src/**/*.scss",
-    "lint:js": "eslint src/**/*.js src/**/*.mjs",
+    "lint:js": "eslint src/**/*.js src/**/*.mjs --no-error-on-unmatched-pattern",
     "lint": "run-s lint:css lint:js",
     "test:js": "jest --config=jest.config.js src/assets/js/**/*js --passWithNoTests",
     "node-version": "check-node-version --package",
