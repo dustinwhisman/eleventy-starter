@@ -43,6 +43,7 @@ Things to update:
 - [`src/templates/components/header.njk`](./src/templates/components/header.njk): replace with markup for your header
 - [`src/templates/layouts/blog.njk`](./src/templates/layouts/blog.njk): change any part of the layout you don't need or want changed, or delete if not needed
 - [`src/templates/layouts/default.njk`](./src/templates/layouts/default.njk): change any part of the layout you don't need or want changed
+- [`.lighthouserc.js`](./.lighthouserc.js): change the list of URLs to match pages that you want audited by Lighthouse, or delete them and uncomment the `maxAutodiscoverUrls` line to audit all pages
 
 Things to delete:
 - `src/assets/js/*`: the example JS files that aren't actually useful
@@ -261,3 +262,14 @@ exclude, such as a CDN, for example. To add more caching strategies for
 different types of requests, check out the [Service Worker
 Cookbook](https://serviceworke.rs/) by Mozilla or [The Offline
 Cookbook](https://jakearchibald.com/2014/offline-cookbook/) by Jake Archibald.
+
+### Lighthouse Audits
+
+This project is set up to run Lighthouse audits on selected pages for every pull
+request. They are following `lighthouse:recommended` settings, but you can
+change that in `.lighthouserc.js` to be more or less strict.
+
+Failed audits will block pull requests from being merged. Out of the box, you
+should see perfect 100/100 scores, so keep an eye on that as you develop, and
+make sure to investigate any errors or recommendations that are surfaced by
+Lighthouse.
