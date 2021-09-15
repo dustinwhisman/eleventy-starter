@@ -1,0 +1,140 @@
+---
+title: Images
+description: This demonstrates images, their usage, and how image optimization works.
+tags: docs
+layout: layouts/default.njk
+---
+
+<article class="cmp-container cmp-stack">
+  <h1>
+    Images
+  </h1>
+  <p>
+    By default, images will take up to 100% of their parent container's width,
+    but they will not be larger than the width or height attributes set on the
+    <code>img</code> tag itself.
+  </p>
+  <p>
+    At a minimum, <code>img</code> tags should have <code>src</code>,
+    <code>alt</code>, <code>width</code>, and <code>height</code> attributes.
+    The <code>alt</code> attribute is especially important and must exist, even
+    if its contents are an empty string (you would do that for decorative
+    images).
+  </p>
+  <p>
+    Images will be left-aligned by default, but you can center them using the
+    <code>.util-margin-inline-auto</code> utility class. Feel free to use floats
+    or other methods to align images as you wish.
+  </p>
+
+  <img
+    src="/assets/images/dense-code_400.jpg"
+    alt="A bunch of JavaScript that has been compressed to the point of being unreadable."
+    width="400"
+    height="261"
+    class="util-margin-inline-auto"
+  >
+
+<pre>
+&lt;img
+  src="/assets/images/dense-code_400.jpg"
+  alt="A bunch of JavaScript that has been compressed to the point of being unreadable."
+  width="400"
+  height="261"
+  class="util-margin-inline-auto"
+&gt;
+</pre>
+
+  <h2>
+    Responsive Images & The Picture Element
+  </h2>
+  <p>
+    To serve appropriately sized images to screens of all sizes, use the
+    <code>picture</code> element. Use <code>source</code> elements inside to set
+    different images based on media queries and supported image types.
+  </p>
+
+  <picture>
+    <!-- browsers supporting avif images will use .avif files -->
+    <source srcset="/assets/images/binary-code_1200.avif" type="image/avif" media="(min-width: 1200px)">
+    <source srcset="/assets/images/binary-code_800.avif" type="image/avif" media="(min-width: 800px)">
+    <source srcset="/assets/images/binary-code_400.avif" type="image/avif">
+
+    <!-- browsers supporting webp images will use .webp files -->
+    <source srcset="/assets/images/binary-code_1200.webp" type="image/webp" media="(min-width: 1200px)">
+    <source srcset="/assets/images/binary-code_800.webp" type="image/webp" media="(min-width: 800px)">
+    <source srcset="/assets/images/binary-code_400.webp" type="image/webp">
+
+    <!-- browsers that don't support either of the above formats will fall back to .jpg -->
+    <source srcset="/assets/images/binary-code_1200.jpg" media="(min-width: 1200px)">
+    <source srcset="/assets/images/binary-code_800.jpg" media="(min-width: 800px)">
+    <source srcset="/assets/images/binary-code_400.jpg">
+
+    <!-- browsers that don't understand the <picture> element, or any of the above formats will fall back to the default <img> -->
+    <img
+      src="/assets/images/binary-code.jpg"
+      alt="Many segments of binary code, listed in chunks of ones and zeros."
+      width="1200"
+      height="684"
+      class="util-margin-inline-auto"
+      loading="lazy"
+    >
+  </picture>
+
+<pre>
+&lt;picture&gt;
+  &lt;!-- browsers supporting avif images will use .avif files --&gt;
+  &lt;source srcset="/assets/images/binary-code_1200.avif" type="image/avif" media="(min-width: 1200px)"&gt;
+  &lt;source srcset="/assets/images/binary-code_800.avif" type="image/avif" media="(min-width: 800px)"&gt;
+  &lt;source srcset="/assets/images/binary-code_400.avif" type="image/avif"&gt;
+
+  &lt;!-- browsers supporting webp images will use .webp files --&gt;
+  &lt;source srcset="/assets/images/binary-code_1200.webp" type="image/webp" media="(min-width: 1200px)"&gt;
+  &lt;source srcset="/assets/images/binary-code_800.webp" type="image/webp" media="(min-width: 800px)"&gt;
+  &lt;source srcset="/assets/images/binary-code_400.webp" type="image/webp"&gt;
+
+  &lt;!-- browsers that don't support either of the above formats will fall back to .jpg --&gt;
+  &lt;source srcset="/assets/images/binary-code_1200.jpg" media="(min-width: 1200px)"&gt;
+  &lt;source srcset="/assets/images/binary-code_800.jpg" media="(min-width: 800px)"&gt;
+  &lt;source srcset="/assets/images/binary-code_400.jpg"&gt;
+
+  &lt;!-- browsers that don't understand the &lt;picture&gt; element, or any of the above formats will fall back to the default &lt;img&gt; --&gt;
+  &lt;img
+    src="/assets/images/binary-code.jpg"
+    alt="Many segments of binary code, listed in chunks of ones and zeros."
+    width="1200"
+    height="684"
+    class="util-margin-inline-auto"
+    loading="lazy"
+  &gt;
+&lt;/picture&gt;
+</pre>
+
+  <h2>
+    Image Optimization
+  </h2>
+  <p>
+    This project optimizes images by default when you build the site. It creates
+    an avif, webp, png, and jpg version of every file that it finds in
+    <code>src/assets/images</code>, as well as variations that are 400px, 800px,
+    and 1200px wide.
+  </p>
+  <p>
+    You can change those settings in <code>tasks/optimize-images.mjs</code>. It
+    takes a long time to compress and encode images, so you may prefer to
+    optimize them manually when adding images. Only do this if you know what
+    you're doing.
+  </p>
+  <p>
+    To do that, delete the <code>images:*</code> scripts in
+    <code>package.json</code> as well as any references to them, and delete
+    <code>tasks/optimize-images</code>. You will need to add a line to
+    <code>.eleventy.js</code> to copy your images to the <code>dist</code>
+    directory.
+  </p>
+
+<pre>
+// .eleventy.js
+eleventyConfig.addPassthroughCopy({ 'src/assets/images': 'assets/images' });
+</pre>
+</article>
