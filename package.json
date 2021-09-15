@@ -6,7 +6,8 @@
   "scripts": {
     "prestart": "run-p clean node-version",
     "prebuild": "run-p clean node-version",
-    "start": "run-p eleventy:dev sass:dev postcss:watch js:dev",
+    "start": "netlify dev --command \"npm run dev\"",
+    "dev": "run-p eleventy:dev sass:dev postcss:watch js:dev",
     "build": "run-s eleventy:build sass:build postcss:build js:build",
     "clean": "rimraf dist",
     "eleventy:dev": "NODE_ENV=development eleventy --serve",
@@ -42,6 +43,7 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jest": "^24.5.0",
     "jest": "^27.2.4",
+    "netlify-cli": "^6.9.6",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.8",
     "postcss-cli": "^9.0.1",
