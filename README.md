@@ -58,8 +58,9 @@ Things to delete:
 1. Run `npm install`
 1. Run `npm start`. This will
   - Build project files
-  - Start the development server (`http://localhost:8080`)
+  - Start the development server (`http://localhost:8888`)
   - Run watch tasks on Sass/JS files as well as your templates
+  - Listen for requests to serverless functions
 
 ### File Structure
 
@@ -85,7 +86,7 @@ The `scss` folder already contains some basic, brutalist styles. You can rip
 those out and replace them with your own if you like, use them as-is, or extend
 them, but they should be decent enough to get you started with simple, blog-like
 pages without much effort. When you run the project, check out
-`http://localhost:8080/docs` to see more about the default styles.
+`http://localhost:8888/docs` to see more about the default styles.
 
 #### Pages
 
@@ -154,11 +155,18 @@ layout: layouts/default.njk
 ```
 
 However, if you want to override blocks, it's better to extend the layout. See
-the docs for [templates](http://localhost:8080/docs/templates) for more info.
+the docs for [templates](http://localhost:8888/docs/templates) for more info.
 
 ```njk
 {% extend "layouts/default.njk" %}
 ```
+
+#### Functions
+
+The `functions` folder contains all the serverless functions that can be used by
+the site. The name of the file determines the path, so for example, `hello.js`
+can be accessed by fetching `/api/hello`. Behind the scenes, Netlify, or Netlify
+CLI will redirect the request and respond accordingly based on the function.
 
 ## Project Details
 
