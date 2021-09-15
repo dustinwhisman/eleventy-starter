@@ -64,11 +64,11 @@ const optimizeImage = async (fileName, width) => {
       );
       ensureDirectoryExists(newPath);
       const newImage = await encodedImage;
+      const newFileName = `${newPath}${width ? `_${width}` : ""}.${newImage.extension}`;
 
-      fs.writeFileSync(
-        `${newPath}${width ? `_${width}` : ""}.${newImage.extension}`,
-        newImage.binary
-      );
+      console.log(`creating ${newFileName}...`);
+
+      fs.writeFileSync(newFileName, newImage.binary);
     }
   } catch (error) {
 
@@ -78,6 +78,10 @@ const optimizeImage = async (fileName, width) => {
       `${fileInfo.name}${fileInfo.ext}`
     );
     ensureDirectoryExists(newPath);
+
+    console.log(`could not optimize ${fileName}.`);
+    console.log(`copying to ${newPath}.`);
+
     fs.writeFileSync(newPath, file);
   } finally {
     return;
