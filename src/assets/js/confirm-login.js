@@ -1,6 +1,9 @@
+import { observeAuthState } from './utilities/auth/observe-auth-state.js';
 import { completeSignIn } from './utilities/auth/complete-sign-in.js';
 
 (() => {
+  observeAuthState();
+
   const handleSuccess = () => {
     window.localStorage.removeItem('emailForSignIn');
 

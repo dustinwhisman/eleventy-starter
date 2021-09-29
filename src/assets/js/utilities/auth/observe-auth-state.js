@@ -1,12 +1,14 @@
 import { onAuthStateChanged } from '@firebase/auth';
 import { auth } from './auth.js';
 
-export const observeAuthState = (handleIsLoggedIn, handleIsLoggedOut) => {
+export const observeAuthState = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      handleIsLoggedIn(user);
+      const loggedInEvent = new CustomEvent('user-logged-in', { detail: user });
+      document.dispatchEvent(loggedInEvent);
     } else {
-      handleIsLoggedOut();
+      const loggedOutEvent = new CustomEvent('user-logged-out');
+      document.dispatchEvent(loggedOutEvent);
     }
   });
 };
