@@ -1,0 +1,27 @@
+---
+title: Account Details
+description: View your account details, log out, update your email address, or delete your account from here.
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+  <div class="cmp-container cmp-stack">
+    <h1>
+      Account Details
+    </h1>
+    <p data-logged-in-as hidden>
+      You are logged in as <span data-email-address></span>.
+    </p>
+    <div data-logout-block hidden>
+      <button type="button" data-logout-button>
+        Log Out
+      </button>
+    </div>
+  </div>
+{% endblock %}
+
+{% block authScripts %}
+  <script src="/assets/js/bundled/account.js" type="module"></script>
+  <script src="/assets/js/legacy/account.js" nomodule></script>
+{% endblock %}
