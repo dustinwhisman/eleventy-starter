@@ -7,7 +7,9 @@ const CACHE_KEYS = {
 };
 
 // add any urls that you don't want to be cached
-const EXCLUDED_URLS = [];
+const EXCLUDED_URLS = [
+  '/login/confirm',
+];
 
 // add any urls that you want cached when the service worker is installed
 const PRE_CACHE_URLS = [
@@ -18,6 +20,7 @@ const PRE_CACHE_URLS = [
 // add any hosts that you want to bypass
 const IGNORED_HOSTS = [
   'localhost',
+  'identitytoolkit.googleapis.com',
 ];
 
 const addItemsToCache = (cacheName, items = []) => {

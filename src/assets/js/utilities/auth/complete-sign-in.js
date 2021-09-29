@@ -6,5 +6,7 @@ export const completeSignIn = (email, handleSuccess, handleError) => {
     signInWithEmailLink(auth, email, window.location.href)
       .then(handleSuccess)
       .catch(handleError);
+  } else {
+    handleError();
   }
 };

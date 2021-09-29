@@ -8,6 +8,6 @@ const actionCodeSettings = {
 
 export const sendSignInLink = (email, handleSuccess, handleError) => {
   sendSignInLinkToEmail(auth, email, actionCodeSettings)
-    .then(handleSuccess)
+    .then(() => handleSuccess(email))
     .catch(handleError);
 };
