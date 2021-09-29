@@ -55,5 +55,8 @@
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-config-standard": "^22.0.0",
     "terser": "^5.9.0"
+  },
+  "dependencies": {
+    "middy": "^0.36.0"
   }
 }
