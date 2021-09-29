@@ -2,7 +2,7 @@
   autoLaunch = false
 
 [build]
-  functions = "src/functions"
+  functions = "functions"
 
 [functions]
   node_bundler = "esbuild"
