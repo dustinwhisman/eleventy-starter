@@ -1,6 +1,6 @@
 import { checkAuth } from './check-auth';
 
-export const authMiddleware = (config) => {
+export const authMiddleware = () => {
   return {
     before: async (handler, next) => {
       try {

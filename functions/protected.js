@@ -6,6 +6,7 @@ const protectedFunction = (event, context, callback) => {
     statusCode: 200,
     body: JSON.stringify({
       data: 'auth true',
+      uid: event.user.uid,
     }),
   });
 };
