@@ -8,7 +8,7 @@
     "jest/globals": true
   },
   "rules": {
-    "import/extensions": ["error", "always"],
+    "import/extensions": ["error", "ignorePackages"],
     "import/prefer-default-export": 0
   }
 }

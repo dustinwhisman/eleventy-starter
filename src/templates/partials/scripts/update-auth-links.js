@@ -1,3 +1,5 @@
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable func-names */
 function updateAuthLinks(isLoggedIn) {
   const loginLink = document.querySelector('[data-login-link]');
   const accountLink = document.querySelector('[data-account-link]');
@@ -14,10 +16,10 @@ function updateAuthLinks(isLoggedIn) {
   }
 }
 
-document.addEventListener('user-logged-in', function() {
+document.addEventListener('user-logged-in', function () {
   updateAuthLinks(true);
 });
 
-document.addEventListener('user-logged-out', function() {
+document.addEventListener('user-logged-out', function () {
   updateAuthLinks(false);
 });

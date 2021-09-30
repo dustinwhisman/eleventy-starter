@@ -1,4 +1,4 @@
-import { reauthenticateWithCredential, EmailAuthProvider } from '@firebase/auth';
+import { reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
 import { auth } from './auth.js';
 
 export const reauthenticateUser = (handleSuccess, handleError) => {

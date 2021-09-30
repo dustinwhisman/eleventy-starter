@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from '@firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './auth.js';
 
 export const observeAuthState = () => {

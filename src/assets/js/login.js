@@ -8,12 +8,12 @@ import { sendSignInLink } from './utilities/auth/send-sign-in-link.js';
     window.localStorage.setItem('emailForSignIn', email);
 
     const successMessageContainer = document.querySelector('[data-success-message]');
-    successMessageContainer?.removeAttribute('hidden');
-  }
+    successMessageContainer.removeAttribute('hidden');
+  };
 
   const handleError = () => {
     const errorMessageContainer = document.querySelector('[data-error-message]');
-    errorMessageContainer?.removeAttribute('hidden');
+    errorMessageContainer.removeAttribute('hidden');
   };
 
   document.addEventListener('submit', (event) => {

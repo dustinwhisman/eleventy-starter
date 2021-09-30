@@ -8,21 +8,21 @@ import { completeSignIn } from './utilities/auth/complete-sign-in.js';
     window.localStorage.removeItem('emailForSignIn');
 
     const successMessageContainer = document.querySelector('[data-success-message]');
-    successMessageContainer?.removeAttribute('hidden');
+    successMessageContainer.removeAttribute('hidden');
 
     window.location.href = '/';
-  }
+  };
 
-  const handleError = (error) => {
+  const handleError = () => {
     const errorMessageContainer = document.querySelector('[data-error-message]');
-    errorMessageContainer?.removeAttribute('hidden');
+    errorMessageContainer.removeAttribute('hidden');
   };
 
   const showConfirmationForm = () => {
     const waitMessage = document.querySelector('[data-wait-message]');
     const form = document.querySelector('[data-confirm-form]');
-    waitMessage?.setAttribute('hidden', true);
-    form?.removeAttribute('hidden');
+    waitMessage.setAttribute('hidden', true);
+    form.removeAttribute('hidden');
   };
 
   const emailForSignIn = window.localStorage.getItem('emailForSignIn');

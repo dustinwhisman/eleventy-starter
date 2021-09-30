@@ -1,4 +1,4 @@
-import { updateEmail } from '@firebase/auth';
+import { updateEmail } from 'firebase/auth';
 import { auth } from './auth.js';
 
 export const updateUserEmail = (newEmail, handleSuccess, handleError) => {

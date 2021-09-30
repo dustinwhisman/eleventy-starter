@@ -1,4 +1,4 @@
-import { deleteUser } from '@firebase/auth';
+import { deleteUser } from 'firebase/auth';
 import { auth } from './auth.js';
 
 export const deleteAccount = (handleSuccess, handleError) => {

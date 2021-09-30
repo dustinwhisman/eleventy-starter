@@ -28,7 +28,7 @@ const ensureDirectoryExists = (filePath) => {
 const minifyJS = async (fileName) => {
   const fileContents = fs.readFileSync(fileName, { encoding: 'utf8' });
   const result = await minify(fileContents);
-  if (result?.code) {
+  if (result.code) {
     const newPath = fileName.replace('src/assets/js', 'dist/assets/js');
     ensureDirectoryExists(newPath);
     fs.writeFileSync(newPath, result.code);
