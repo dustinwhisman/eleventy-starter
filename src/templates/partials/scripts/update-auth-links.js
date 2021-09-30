@@ -16,7 +16,8 @@ function updateAuthLinks(isLoggedIn) {
   }
 }
 
-document.addEventListener('user-logged-in', function () {
+document.addEventListener('user-logged-in', function (event) {
+  window.CURRENT_USER = event.detail;
   updateAuthLinks(true);
 });
 
