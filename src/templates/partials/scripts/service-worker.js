@@ -9,7 +9,9 @@ const CACHE_KEYS = {
 // add any urls that you don't want to be cached
 const EXCLUDED_URLS = [
   '/login/confirm',
-  '/account'
+  '/account',
+  '/account/update-email',
+  '/account/delete-account',
 ];
 
 // add any urls that you want cached when the service worker is installed
