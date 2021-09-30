@@ -1,28 +1,52 @@
+import { auth } from './utilities/auth/auth.js';
 import { observeAuthState } from './utilities/auth/observe-auth-state.js';
 import { signUserOut } from './utilities/auth/sign-user-out.js';
+import { sendSignInLink } from './utilities/auth/send-sign-in-link.js';
 
 (() => {
-  const showAccountDetails = (details) => {
+  const showEmailAddress = (details) => {
     const { email } = details;
-    const loggedInAsMessage = document.querySelector('[data-logged-in-as]');
     const emailPhrase = document.querySelector('[data-email-address]');
 
-    loggedInAsMessage.removeAttribute('hidden');
     emailPhrase.textContent = email;
   };
 
-  const showLogoutButton = () => {
-    const logoutBlock = document.querySelector('[data-logout-block]');
-    logoutBlock.removeAttribute('hidden');
+  const showLoggedInState = () => {
+    const loggedInBlocks = document.querySelectorAll('[data-logged-in]');
+    loggedInBlocks.forEach((block) => {
+      block.removeAttribute('hidden');
+    });
+
+    const loggedOutBlocks = document.querySelectorAll('[data-logged-out]');
+    loggedOutBlocks.forEach((block) => {
+      block.setAttribute('hidden', true);
+    });
+  };
+
+  const showLoggedOutState = () => {
+    const loggedInBlocks = document.querySelectorAll('[data-logged-in]');
+    loggedInBlocks.forEach((block) => {
+      block.setAttribute('hidden', true);
+    });
+
+    const loggedOutBlocks = document.querySelectorAll('[data-logged-out]');
+    loggedOutBlocks.forEach((block) => {
+      block.removeAttribute('hidden');
+    });
   };
 
   const handleLoggedInEvent = (event) => {
-    showAccountDetails(event.detail);
-    showLogoutButton();
+    showEmailAddress(event.detail);
+    showLoggedInState();
   };
 
   const handleLoggedOutEvent = () => {
-    window.location.href = '/';
+    showLoggedOutState();
+  };
+
+  const revealMessage = (selector) => {
+    const element = document.querySelector(selector);
+    element.removeAttribute('hidden');
   };
 
   document.addEventListener('user-logged-in', handleLoggedInEvent);
@@ -31,6 +55,29 @@ import { signUserOut } from './utilities/auth/sign-user-out.js';
   document.addEventListener('click', (event) => {
     if (event.target.matches('[data-logout-button]')) {
       signUserOut(handleLoggedOutEvent, console.error);
+      return;
+    }
+
+    if (event.target.matches('[data-update-email-button]')) {
+      const url = `${window.location.origin}/account/update-email`;
+      const email = auth.currentUser.email;
+      sendSignInLink(
+        url,
+        email,
+        () => { revealMessage('[data-update-email-success]') },
+        () => { revealMessage('[data-update-email-failure]') },
+      );
+    }
+
+    if (event.target.matches('[data-delete-account-button]')) {
+      const url = `${window.location.origin}/account/delete-account`;
+      const email = auth.currentUser.email;
+      sendSignInLink(
+        url,
+        email,
+        () => { revealMessage('[data-delete-account-success]') },
+        () => { revealMessage('[data-delete-account-failure]') },
+      );
     }
   });
 

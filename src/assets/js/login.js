@@ -20,8 +20,9 @@ import { sendSignInLink } from './utilities/auth/send-sign-in-link.js';
     if (event.target.matches('[data-sign-in-form]')) {
       event.preventDefault();
 
+      const url = `${window.location.origin}/login/confirm`;
       const email = event.target.elements['sign-in-email'].value;
-      sendSignInLink(email, handleSuccess, handleError);
+      sendSignInLink(url, email, handleSuccess, handleError);
     }
   });
 })();

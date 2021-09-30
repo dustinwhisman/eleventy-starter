@@ -11,7 +11,7 @@
   margin-block: 0;
 }
 
-.cmp-stack > *:not([hidden]) + * {
+.cmp-stack > * + * {
   margin-block-start: var(--stack-space, 1.5rem);
 
   &:is(h1, h2, h3, h4, h5, h6) {

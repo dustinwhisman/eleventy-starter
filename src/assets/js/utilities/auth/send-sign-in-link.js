@@ -1,13 +1,11 @@
 import { sendSignInLinkToEmail } from '@firebase/auth';
 import { auth } from './auth.js';
 
-const actionCodeSettings = {
-  url: `${window.location.origin}/login/confirm`,
-  handleCodeInApp: true,
-};
-
-export const sendSignInLink = (email, handleSuccess, handleError) => {
-  sendSignInLinkToEmail(auth, email, actionCodeSettings)
+export const sendSignInLink = (url, email, handleSuccess, handleError) => {
+  sendSignInLinkToEmail(auth, email, {
+    url,
+    handleCodeInApp: true,
+  })
     .then(() => handleSuccess(email))
     .catch(handleError);
 };
