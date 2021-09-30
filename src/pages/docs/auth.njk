@@ -1,0 +1,25 @@
+---
+title: Auth
+description: This describes setting up authentication and how to use it in practice.
+tags: docs
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+  <article class="cmp-container cmp-stack">
+    <h1>
+      Auth
+    </h1>
+    <div>
+      <button type="button" data-test-endpoint>
+        Test Protected Endpoint
+      </button>
+    </div>
+  </article>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/assets/js/bundled/auth-example.js" type="module"></script>
+  <script src="/assets/js/legacy/auth-example.js" nomodule></script>
+{% endblock %}
