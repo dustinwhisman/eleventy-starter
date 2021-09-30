@@ -20,8 +20,8 @@ import { deleteAccount } from './utilities/auth/delete-account.js';
     isLoggedIn = true;
 
     reauthenticateUser(
-      () => { revealElement('[data-delete-account]') },
-      () => { revealElement('[data-reauthentication-failure]') },
+      () => { revealElement('[data-delete-account]'); },
+      () => { revealElement('[data-reauthentication-failure]'); },
     );
   };
 
@@ -38,8 +38,8 @@ import { deleteAccount } from './utilities/auth/delete-account.js';
     if (event.target.matches('[data-delete-account-button]')) {
       isDeleted = true;
       deleteAccount(
-        () => { revealElement('[data-success-message]') },
-        () => { revealElement('[data-failure-message]') },
+        () => { revealElement('[data-success-message]'); },
+        () => { revealElement('[data-failure-message]'); },
       );
     }
   });

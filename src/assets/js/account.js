@@ -60,23 +60,23 @@ import { sendSignInLink } from './utilities/auth/send-sign-in-link.js';
 
     if (event.target.matches('[data-update-email-button]')) {
       const url = `${window.location.origin}/account/update-email`;
-      const email = auth.currentUser.email;
+      const { email } = auth.currentUser;
       sendSignInLink(
         url,
         email,
-        () => { revealMessage('[data-update-email-success]') },
-        () => { revealMessage('[data-update-email-failure]') },
+        () => { revealMessage('[data-update-email-success]'); },
+        () => { revealMessage('[data-update-email-failure]'); },
       );
     }
 
     if (event.target.matches('[data-delete-account-button]')) {
       const url = `${window.location.origin}/account/delete-account`;
-      const email = auth.currentUser.email;
+      const { email } = auth.currentUser;
       sendSignInLink(
         url,
         email,
-        () => { revealMessage('[data-delete-account-success]') },
-        () => { revealMessage('[data-delete-account-failure]') },
+        () => { revealMessage('[data-delete-account-success]'); },
+        () => { revealMessage('[data-delete-account-failure]'); },
       );
     }
   });

@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: 'process.env.FIREBASE_PROJECT_ID',
   storageBucket: 'process.env.FIREBASE_PROJECT_ID.appspot.com',
   messagingSenderId: 'process.env.FIREBASE_MESSAGING_SENDER_ID',
-  appId: '1:process.env.FIREBASE_MESSAGING_SENDER_ID:web:process.env.FIREBASE_APP_ID'
+  appId: '1:process.env.FIREBASE_MESSAGING_SENDER_ID:web:process.env.FIREBASE_APP_ID',
 };
 
 // Initialize Firebase

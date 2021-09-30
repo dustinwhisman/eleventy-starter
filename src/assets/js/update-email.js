@@ -19,8 +19,8 @@ import { updateUserEmail } from './utilities/auth/update-user-email.js';
     isLoggedIn = true;
 
     reauthenticateUser(
-      () => { revealElement('[data-update-email-form]') },
-      () => { revealElement('[data-reauthentication-failure]') },
+      () => { revealElement('[data-update-email-form]'); },
+      () => { revealElement('[data-reauthentication-failure]'); },
     );
   };
 
@@ -38,8 +38,8 @@ import { updateUserEmail } from './utilities/auth/update-user-email.js';
       const newEmail = event.target.elements['new-email'].value;
       updateUserEmail(
         newEmail,
-        () => { revealElement('[data-success-message]') },
-        () => { revealElement('[data-failure-message]') },
+        () => { revealElement('[data-success-message]'); },
+        () => { revealElement('[data-failure-message]'); },
       );
     }
   });
