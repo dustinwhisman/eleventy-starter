@@ -44,6 +44,11 @@ import { sendSignInLink } from './utilities/auth/send-sign-in-link.js';
     showLoggedOutState();
   };
 
+  const handleLogoutError = () => {
+    const errorMessage = document.querySelector('[data-logout-failure]');
+    errorMessage.removeAttribute('hidden');
+  };
+
   const revealMessage = (selector) => {
     const element = document.querySelector(selector);
     element.removeAttribute('hidden');
@@ -54,7 +59,7 @@ import { sendSignInLink } from './utilities/auth/send-sign-in-link.js';
 
   document.addEventListener('click', (event) => {
     if (event.target.matches('[data-logout-button]')) {
-      signUserOut(handleLoggedOutEvent, console.error);
+      signUserOut(handleLoggedOutEvent, handleLogoutError);
       return;
     }
 
