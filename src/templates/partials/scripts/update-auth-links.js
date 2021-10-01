@@ -22,5 +22,6 @@ document.addEventListener('user-logged-in', function (event) {
 });
 
 document.addEventListener('user-logged-out', function () {
+  window.CURRENT_USER = undefined;
   updateAuthLinks(false);
 });

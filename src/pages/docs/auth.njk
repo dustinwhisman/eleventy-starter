@@ -11,11 +11,135 @@ tags: docs
     <h1>
       Auth
     </h1>
+    <p>
+      This project uses Firebase for authentication, and by default, it only
+      supports passwordless authentication. This reduces risk of user passwords
+      being compromised and reduces the overall effort of implementing auth.
+    </p>
+    <p>
+      On the user-facing side, there are several pages directly related to
+      authentication:
+    </p>
+    <ul>
+      <li>
+        The login page
+      </li>
+      <li>
+        A confirmation page after logging in (users are sent a magic link that
+        leads there)
+      </li>
+      <li>
+        The account page
+      </li>
+      <li>
+        A page to confirm changes to user email addresses
+      </li>
+      <li>
+        A page to confirm account deletion
+      </li>
+    </ul>
+
+    <h2>
+      Authentication Events
+    </h2>
+    <p>
+      There is a small script that runs on every page that will update the main
+      navigation if the user is logged in. It listens on the
+      <code>document</code>, and if it receives a 'user-logged-in' event, it
+      updates the navigation and stores the user object as a global variable.
+    </p>
+    <p>
+      This same script also listens for a 'user-logged-out' event, and if it
+      receives that event, it updates the nav again, replacing the Account link
+      with a Log In link. It also sets the user object to
+      <code>undefined</code>.
+    </p>
+    <p>
+      For any data-fetching that relies on the user being logged in, it's
+      recommended to listen for the 'user-logged-in' event before performing the
+      request.
+    </p>
+<pre>
+document.addEventListener('user-logged-in', (event) => {
+  // fetch user-related things
+  // event.detail is the `user` object
+});
+</pre>
+
+    <h2>
+      Protected Endpoints
+    </h2>
+    <p>
+      This project uses Netlify Functions as its serverless functions provider,
+      and it uses <code>middy</code> as middleware that relies on Firebase to
+      verify user ID tokens.
+    </p>
+    <p>
+      Any protected endpoints should use <code>middy</code> and specify that it
+      should use <code>authMiddleware</code>. That will prevent unauthorized
+      requests from hitting your function entirely.
+    </p>
+<pre>
+import middy from 'middy';
+import { authMiddleware } from '../functions-helpers/auth-middleware';
+
+const protectedFunction = (event, context, callback) => {
+  return callback(null, {
+    statusCode: 200,
+    body: JSON.stringify({
+      data: 'auth true',
+      uid: event.user.uid,
+    }),
+  });
+};
+
+const handler = middy(protectedFunction).use(authMiddleware());
+
+export { handler };
+</pre>
+
+    <h2>
+      Authorization Headers
+    </h2>
+    <p>
+      The Authorization header needs to be set for every request to protected
+      functions, so a wrapper function for <code>fetch</code> was created to
+      reduce the effort of getting the token and setting the header for many
+      requests.
+    </p>
+    <p>
+      To use the wrapper, import <code>fetcher</code> from
+      <code>src/assets/js/utilities/fetcher.js</code>, then use it how you would
+      normally use <code>fetch</code>.
+    </p>
+<pre>
+import { fetcher } from './utilities/fetcher.js';
+
+const hitProtectedEndpoint = async () => {
+  const request = await fetcher('/api/protected');
+  const response = await request.json();
+  displayEndpointResult(response);
+};
+</pre>
+
+    <h2>
+      Testing Authentication
+    </h2>
+    <p>
+      If you are setting this up for the first time and want to test that your
+      configuration is set up properly, you can use this button to test your
+      protected endpoint.
+    </p>
+    <p>
+      If you are not logged in, you should see an error message. If you are
+      logged in, you should see some data, including your user ID (uid).
+    </p>
     <div>
       <button type="button" data-test-endpoint>
         Test Protected Endpoint
       </button>
     </div>
+<pre data-result-block></pre>
   </article>
 {% endblock %}
 
